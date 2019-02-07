@@ -5,11 +5,11 @@
  */
 import { defineMessages } from 'react-intl';
 
-export const scope = 'app.components.Header';
+export const scope = 'app.containers.HomePage';
 
 export default defineMessages({
   header: {
-    id: `${scope}.title`,
+    id: `${scope}.header`,
     defaultMessage: 'Razz de Can',
   },
 });

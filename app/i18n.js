@@ -8,23 +8,27 @@
  *   You CANNOT use import/export in this file.
  */
 const addLocaleData = require('react-intl').addLocaleData; //eslint-disable-line
+const itLocaleData = require('react-intl/locale-data/it');
 const enLocaleData = require('react-intl/locale-data/en');
 
+const itTranslationMessages = require('./translations/it.json');
 const enTranslationMessages = require('./translations/en.json');
 
+addLocaleData(itLocaleData);
 addLocaleData(enLocaleData);
 
-const DEFAULT_LOCALE = 'en';
+const DEFAULT_LOCALE = 'it';
 
 // prettier-ignore
 const appLocales = [
+  'it',
   'en',
 ];
 
 const formatTranslationMessages = (locale, messages) => {
   const defaultFormattedMessages =
     locale !== DEFAULT_LOCALE
-      ? formatTranslationMessages(DEFAULT_LOCALE, enTranslationMessages)
+      ? formatTranslationMessages(DEFAULT_LOCALE, itTranslationMessages)
       : {};
   const flattenFormattedMessages = (formattedMessages, key) => {
     const formattedMessage =
@@ -37,6 +41,7 @@ const formatTranslationMessages = (locale, messages) => {
 };
 
 const translationMessages = {
+  it: formatTranslationMessages('it', itTranslationMessages),
   en: formatTranslationMessages('en', enTranslationMessages),
 };
 
