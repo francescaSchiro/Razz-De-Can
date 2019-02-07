@@ -20,6 +20,7 @@ export default function App() {
     <Wrapper>
       <Switch>
         <Route exact path="/" component={HomePage} />
+        {/* <Route path="/game" component={Game} /> */}
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />

@@ -9,15 +9,22 @@
  * the linting exception.
  */
 
-import React from 'react';
+import React, { Fragment } from 'react';
 // import { FormattedMessage } from 'react-intl';
 
+import Footer from 'components/Footer';
 import Header from 'components/Header';
+
 // import messages from './messages';
 
 /* eslint-disable react/prefer-stateless-function */
 export default class HomePage extends React.PureComponent {
   render() {
-    return <Header />;
+    return (
+      <Fragment>
+        <Header />
+        <Footer />
+      </Fragment>
+    );
   }
 }

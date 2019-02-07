@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  height: 100vh;
-  width: 100vw;
-  padding: 15px;
-
+  position: absolute;
+  left: 0;
+  bottom: 0;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: flex-start;
 `;
 
 export default Wrapper;

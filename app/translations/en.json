@@ -1,3 +1,5 @@
 {
-    "app.components.Header.title": "Dog & Breeds"
+    "app.components.Header.title": "Dogs & Breeds",
+    "app.components.Footer.license.message": "Dogs & Breeds © All Rights Reserved",
+    "app.components.Footer.author.message": "Credits: Francesca Schiro"
 }

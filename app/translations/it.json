@@ -1,3 +1,5 @@
 {
-    "app.components.Header.title": "Razz de can"
+    "app.components.Header.title": "Razz De Can",
+    "app.components.Footer.license.message": "Razz De Can © Tutti i diritti riservati",
+    "app.components.Footer.author.message": "Autore: Francesca Schiro"
 }
