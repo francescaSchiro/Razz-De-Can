@@ -1,5 +1,7 @@
 {
-    "app.components.Header.title": "Razz De Can",
+    "app.components.Header.header": "Razz De Can",
     "app.components.Footer.license.message": "Razz De Can © Tutti i diritti riservati",
-    "app.components.Footer.author.message": "Autore: Francesca Schiro"
+    "app.components.Footer.author.message": "Autore: Francesca Schiro",
+    "app.containers.LocaleToggle.it": "Italiano",
+    "app.containers.LocaleToggle.en": "Inglese"
 }
