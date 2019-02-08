@@ -10,21 +10,67 @@
  */
 
 import React, { Fragment } from 'react';
-// import { FormattedMessage } from 'react-intl';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { createStructuredSelector } from 'reselect';
 
+import injectReducer from 'utils/injectReducer';
+import injectSaga from 'utils/injectSaga';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
-
-// import messages from './messages';
+import H2 from 'components/H2';
+import DogImg from 'components/DogImg';
+import { loadImgUrl } from './actions';
+import reducer from './reducer';
+import saga from './saga';
+import { makeSelectImgUrl, makeSelectBreedName } from './selectors';
 
 /* eslint-disable react/prefer-stateless-function */
-export default class HomePage extends React.PureComponent {
+export class HomePage extends React.PureComponent {
   render() {
+    const { imgUrl, breedName, onRandomClick } = this.props;
     return (
       <Fragment>
         <Header />
+        <H2>{breedName}</H2>
+        <DogImg imgUrl={imgUrl} />
+        <button type="button" onClick={onRandomClick}>
+          Click Me
+        </button>
         <Footer />
       </Fragment>
     );
   }
 }
+
+HomePage.propTypes = {
+  imgUrl: PropTypes.string,
+  breedName: PropTypes.string,
+  onRandomClick: PropTypes.func,
+};
+
+export function mapDispatchToProps(dispatch) {
+  return {
+    onRandomClick: () => dispatch(loadImgUrl()),
+  };
+}
+
+const mapStateToProps = createStructuredSelector({
+  imgUrl: makeSelectImgUrl(),
+  breedName: makeSelectBreedName(),
+});
+
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+);
+
+const withReducer = injectReducer({ key: 'home', reducer });
+const withSaga = injectSaga({ key: 'home', saga });
+
+export default compose(
+  withReducer,
+  withSaga,
+  withConnect,
+)(HomePage);
