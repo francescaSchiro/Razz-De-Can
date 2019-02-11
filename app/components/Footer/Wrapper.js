@@ -10,6 +10,8 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: 0.5rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
 `;
 
 export default Wrapper;

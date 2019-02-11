@@ -19,7 +19,7 @@ import {
 
 // The initial state of the App
 export const initialState = fromJS({
-  breedName: 'Browse a random dog',
+  breedName: '',
   imgUrl:
     'https://www.painted-pets.com/wp-content/plugins/wc-painting/assets/imgs/dog-portraits-watching-700.jpg',
 });

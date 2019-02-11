@@ -5,11 +5,15 @@
  */
 import { defineMessages } from 'react-intl';
 
-export const scope = 'app.components.Header';
+export const scope = 'app.components.HomePage';
 
 export default defineMessages({
-  header: {
-    id: `${scope}.title`,
-    defaultMessage: 'Razz de Can',
+  breedPlaceholder: {
+    id: `${scope}.breedPlaceholder`,
+    defaultMessage: 'Clicca per un cane a caso',
+  },
+  buttonText: {
+    id: `${scope}.buttonText`,
+    defaultMessage: 'Cliccami',
   },
 });

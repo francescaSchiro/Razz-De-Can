@@ -14,17 +14,21 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
+import { FormattedMessage } from 'react-intl';
 
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
+import Button from 'components/Button';
 import H2 from 'components/H2';
 import DogImg from 'components/DogImg';
+import ContentWrapper from './ContentWrapper';
 import { loadImgUrl } from './actions';
 import reducer from './reducer';
 import saga from './saga';
 import { makeSelectImgUrl, makeSelectBreedName } from './selectors';
+import messages from './messages';
 
 /* eslint-disable react/prefer-stateless-function */
 export class HomePage extends React.PureComponent {
@@ -33,11 +37,19 @@ export class HomePage extends React.PureComponent {
     return (
       <Fragment>
         <Header />
-        <H2>{breedName}</H2>
-        <DogImg imgUrl={imgUrl} />
-        <button type="button" onClick={onRandomClick}>
-          Click Me
-        </button>
+        <ContentWrapper>
+          <H2>
+            {breedName === '' ? (
+              <FormattedMessage {...messages.breedPlaceholder} />
+            ) : (
+              breedName
+            )}
+          </H2>
+          <DogImg imgUrl={imgUrl} />
+          <Button type="button" onClick={onRandomClick}>
+            {<FormattedMessage {...messages.buttonText} />}
+          </Button>
+        </ContentWrapper>
         <Footer />
       </Fragment>
     );
