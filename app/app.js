@@ -34,14 +34,21 @@ import configureStore from './configureStore';
 // Import i18n messages
 import { translationMessages } from './i18n';
 
-// Observe loading of Open Sans (to remove open sans, remove the <link> tag in
+// Observe loading of Nunito (<link> tag in
 // the index.html file and this observer)
 const nunitoObserver = new FontFaceObserver('Nunito', {});
 
-// When Open Sans is loaded, add a font-family using Open Sans to the body
-nunitoObserver.load().then(() => {
-  document.body.classList.add('fontLoaded');
-});
+// When Nunito is loaded, add a font-family using Open Sans to the body
+nunitoObserver
+  .load()
+  .then(() => {
+    // eslint-disable-next-line no-console
+    console.log('Nunito has loaded.');
+  })
+  .catch(() => {
+    // eslint-disable-next-line no-console
+    console.log('Nunito failed to load.');
+  });
 
 // Create redux store with history
 const initialState = {};

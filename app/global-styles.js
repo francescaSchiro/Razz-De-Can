@@ -11,12 +11,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  }
-  
-  body.fontLoaded {
     font-family: 'Nunito', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
+  
+  /* body.fontLoaded {
+    font-family: 'Nunito', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  } */
 
   #app {
     background-color: #fafafa;
@@ -28,6 +28,10 @@ const GlobalStyle = createGlobalStyle`
   label {
     font-family: Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5em;
+  }
+
+  button {
+    font-family: inherit;
   }
 
   /* @font-face {
