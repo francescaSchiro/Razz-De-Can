@@ -7,7 +7,7 @@ const H1 = styled.h1`
   font-family: 'Nunito', sans-serif;
   font-weight: 600;
   /* padding-bottom: 5px; */
-  border-bottom: 2px solid red;
+  border-bottom: 1px solid red;
 `;
 
 export default H1;

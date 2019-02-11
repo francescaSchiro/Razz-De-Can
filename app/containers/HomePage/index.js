@@ -36,7 +36,6 @@ export class HomePage extends React.PureComponent {
     const { imgUrl, breedName, onRandomClick } = this.props;
     return (
       <Fragment>
-        <Header />
         <ContentWrapper>
           <H2>
             {breedName === '' ? (

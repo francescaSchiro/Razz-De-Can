@@ -20,8 +20,7 @@ import {
 // The initial state of the App
 export const initialState = fromJS({
   breedName: '',
-  imgUrl:
-    'https://www.painted-pets.com/wp-content/plugins/wc-painting/assets/imgs/dog-portraits-watching-700.jpg',
+  imgUrl: 'http://media.tvblog.it/d/dcf/02_21_2017_00_00_18.jpg',
 });
 
 function homeReducer(state = initialState, action) {

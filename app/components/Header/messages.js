@@ -12,4 +12,16 @@ export default defineMessages({
     id: `${scope}.header`,
     defaultMessage: 'Razz de Can',
   },
+  home: {
+    id: `${scope}.home`,
+    defaultMessage: 'Random',
+  },
+  byBreed: {
+    id: `${scope}.byBreed`,
+    defaultMessage: 'Per razza',
+  },
+  game: {
+    id: `${scope}.game`,
+    defaultMessage: 'Indovina la razza',
+  },
 });

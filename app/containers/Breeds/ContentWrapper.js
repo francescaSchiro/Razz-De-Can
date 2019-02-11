@@ -7,6 +7,7 @@ const ContentWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 70%;
+  background-color: lightblue;
 `;
 
 export default ContentWrapper;
