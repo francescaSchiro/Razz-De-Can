@@ -13,9 +13,9 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
-
+  
   body.fontLoaded {
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Nunito', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
   #app {
@@ -29,6 +29,13 @@ const GlobalStyle = createGlobalStyle`
     font-family: Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5em;
   }
+
+  /* @font-face {
+    font-family:  'Nunito', sans-serif;
+    src: url("https://fonts.googleapis.com/css?family=Nunito:300,400,600");
+  } */
+
+
 `;
 
 export default GlobalStyle;
