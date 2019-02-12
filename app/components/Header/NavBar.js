@@ -9,25 +9,23 @@ const NavBar = styled.div`
   font-size: 0.7rem;
 
   transition: all 0.5s ease-in-out;
+
   @media (max-width: 700px) {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    height: ${props => (props.isHamburgerMenuVisible ? '100vh' : '0')};
+    width: 100vw;
+
+    margin: 0;
+    padding: 15px;
+    top: 0;
+    left: 0;
+    color: white;
+    font-size: 1.2rem;
   }
 `;
 
 export default NavBar;
-
-/* @media (max-width: 400px) {
-  position: absolute;
-  margin: 0;
-  padding: 15px;
-  top: 0;
-  left: 0;
-  background-color: red;
-  flex-direction: column;
-  color: white;
-  height: 100%;
-  font-size: 1.2rem;
-  &:hover {
-    font-size: 1.3rem;
-  }
-} */

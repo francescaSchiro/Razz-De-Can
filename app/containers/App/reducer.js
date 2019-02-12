@@ -31,8 +31,3 @@ function appReducer(state = initialState, action) {
 }
 
 export default appReducer;
-
-// {
-//   ...state,
-//   isHamburgerMenuVisible: !action.isHamburgerMenuVisible,
-// };

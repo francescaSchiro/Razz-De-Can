@@ -5,15 +5,17 @@
 import { createSelector } from 'reselect';
 import { initialState } from './reducer';
 
+const selectGlobal = state => state.get('global', initialState);
 const selectRouter = state => state.get('router');
-const selectApp = state => state.get('app', initialState);
 
 const makeSelectLocation = () =>
   createSelector(selectRouter, routerState =>
     routerState.get('location').toJS(),
   );
 
-const makeIsHamburgerMenuVisible = () =>
-  createSelector(selectApp, appState => appState.get('isHamburgerMenuVisible'));
+const makeSelectIsHamburgerMenuVisible = () =>
+  createSelector(selectGlobal, globalState =>
+    globalState.get('isHamburgerMenuVisible'),
+  );
 
-export { makeSelectLocation, makeIsHamburgerMenuVisible };
+export { makeSelectLocation, makeSelectIsHamburgerMenuVisible };
