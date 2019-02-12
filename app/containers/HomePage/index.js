@@ -18,12 +18,11 @@ import { FormattedMessage } from 'react-intl';
 
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
-import Footer from 'components/Footer';
-import Header from 'components/Header';
 import Button from 'components/Button';
 import H2 from 'components/H2';
-import DogImg from 'components/DogImg';
+import DogImg from 'components/DogImg/Loadable';
 import ContentWrapper from './ContentWrapper';
+import BreedButtonWrapper from './BreedButtonWrapper';
 import { loadImgUrl } from './actions';
 import reducer from './reducer';
 import saga from './saga';
@@ -37,19 +36,21 @@ export class HomePage extends React.PureComponent {
     return (
       <Fragment>
         <ContentWrapper>
-          <H2>
-            {breedName === '' ? (
-              <FormattedMessage {...messages.breedPlaceholder} />
-            ) : (
-              breedName
-            )}
-          </H2>
+          <BreedButtonWrapper>
+            {' '}
+            <H2>
+              {breedName === '' ? (
+                <FormattedMessage {...messages.breedPlaceholder} />
+              ) : (
+                breedName
+              )}
+            </H2>
+            <Button type="button" onClick={onRandomClick}>
+              {<FormattedMessage {...messages.buttonText} />}
+            </Button>
+          </BreedButtonWrapper>
           <DogImg imgUrl={imgUrl} />
-          <Button type="button" onClick={onRandomClick}>
-            {<FormattedMessage {...messages.buttonText} />}
-          </Button>
         </ContentWrapper>
-        <Footer />
       </Fragment>
     );
   }

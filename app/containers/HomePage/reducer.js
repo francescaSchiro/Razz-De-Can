@@ -20,7 +20,9 @@ import {
 // The initial state of the App
 export const initialState = fromJS({
   breedName: '',
-  imgUrl: 'http://media.tvblog.it/d/dcf/02_21_2017_00_00_18.jpg',
+  imgUrl:
+    'https://images.unsplash.com/photo-1494947665470-20322015e3a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+  // imgUrl: 'http://media.tvblog.it/d/dcf/02_21_2017_00_00_18.jpg',
 });
 
 function homeReducer(state = initialState, action) {

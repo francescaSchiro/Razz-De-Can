@@ -14,7 +14,7 @@ import HomePage from 'containers/HomePage/Loadable';
 import Breeds from 'containers/Breeds/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import GlobalStyle from 'global-styles';
-// import NavBar from 'components/NavBar';
+import Footer from 'components/Footer';
 import Header from 'components/Header';
 import Wrapper from './Wrapper';
 
@@ -22,6 +22,7 @@ export default function App() {
   return (
     <Wrapper>
       <Header />
+      <Footer />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/search-by-breed" component={Breeds} />

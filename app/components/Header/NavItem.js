@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-const NavItem = styled(Link)`
-  padding: 10px;
+const NavItem = styled(NavLink)`
   text-transform: uppercase;
   font-weight: bold;
   font-weight: 600;
@@ -19,11 +18,11 @@ const NavItem = styled(Link)`
   &:hover {
     color: red;
   }
-
   &:active {
-    background-color: red;
-    color: white;
-    border-radius: 10px;
+    color: #b30000;
+  }
+  &:not(:last-of-type) {
+    margin-right: 10px;
   }
 `;
 

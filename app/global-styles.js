@@ -34,6 +34,15 @@ const GlobalStyle = createGlobalStyle`
     font-family: inherit;
   }
 
+
+  .navLinkActive {
+    font-weight:900;
+    color: red;
+    border-radius: 10px;
+    border-bottom: 2px solid red;
+    background-color:white;
+  }
+
   /* @font-face {
     font-family:  'Nunito', sans-serif;
     src: url("https://fonts.googleapis.com/css?family=Nunito:300,400,600");

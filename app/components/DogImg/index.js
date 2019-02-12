@@ -6,7 +6,7 @@ const DogImg = styled.div`
   background-size: contain; /* <------ */
   background-repeat: no-repeat;
   background-position: center center;
-  height: 50vh;
+  height: 400px;
   width: 100vw;
   /* border: 2px solid red; */
 `;

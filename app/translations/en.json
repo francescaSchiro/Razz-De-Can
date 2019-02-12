@@ -1,5 +1,5 @@
 {
-    "app.components.HomePage.breedPlaceholder": "Click below for a random dog",
+    "app.components.HomePage.breedPlaceholder": "Click for a random dog",
     "app.components.HomePage.buttonText": "Click me",
     "app.components.Header.header": "Dogs & Breeds",
     "app.components.Header.home": "Random-dog",

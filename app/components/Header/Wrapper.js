@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  padding: 10px 0 0 0;
-  margin: 0 15px;
-  width: 100%;
+  width: 100vw;
+  overflow-x: hidden;
+  padding: 0 15px;
 
   display: flex;
   flex-direction: row;

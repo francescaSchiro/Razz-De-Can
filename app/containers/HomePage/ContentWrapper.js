@@ -5,8 +5,9 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   height: 70%;
+  width: 100vw;
 `;
 
 export default ContentWrapper;
