@@ -2,6 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import H1 from 'components/H1';
+import Hamburger from 'components/Hamburger';
 import Wrapper from './Wrapper';
 import NavBar from './NavBar';
 import NavItem from './NavItem';
@@ -37,3 +38,10 @@ const Header = () => (
 );
 
 export default Header;
+
+{
+  /* <Hamburger
+isHamburgerMenuVisible={props.isHamburgerMenuVisible}
+onHamburgerClick={props.onHamburgerClick}
+/> */
+}

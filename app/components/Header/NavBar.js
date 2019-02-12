@@ -9,6 +9,9 @@ const NavBar = styled.div`
   font-size: 0.7rem;
 
   transition: all 0.5s ease-in-out;
+  @media (max-width: 700px) {
+    display: none;
+  }
 `;
 
 export default NavBar;
