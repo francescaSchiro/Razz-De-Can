@@ -15,7 +15,7 @@ import { TOGGLE_HAMBURGER } from './constants';
 
 // The initial state of the App
 export const initialState = fromJS({
-  isHamburgerMenuVisible: true,
+  isHamburgerMenuVisible: false,
 });
 
 function appReducer(state = initialState, action) {
@@ -23,7 +23,7 @@ function appReducer(state = initialState, action) {
     case TOGGLE_HAMBURGER:
       return state.set(
         'isHamburgerMenuVisible',
-        !action.isHamburgerMenuVisible,
+        !state.get('isHamburgerMenuVisible'),
       );
     default:
       return state;

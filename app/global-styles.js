@@ -39,8 +39,6 @@ const GlobalStyle = createGlobalStyle`
     font-weight:900;
     color: red;
     border-radius: 10px;
-    border-bottom: 2px solid red;
-    background-color:white;
   }
 
   /* @font-face {

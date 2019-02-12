@@ -17,7 +17,8 @@ import NavItem from './NavItem';
 
 import messages from './messages';
 
-export class Header extends React.PureComponent {
+// eslint-disable-next-line react/prefer-stateless-function
+export class Header extends React.Component {
   render() {
     const { isHamburgerMenuVisible, onHamburgerClick } = this.props;
     return (
@@ -33,19 +34,31 @@ export class Header extends React.PureComponent {
             <FormattedMessage {...messages.header} />
           </H1>
         </NavItem>
-        {/* <Hamburger
-          type="button"
+        <Hamburger
+          onHamburgerClick={onHamburgerClick}
           isHamburgerMenuVisible={isHamburgerMenuVisible}
-          onClick={onHamburgerClick}
-        /> */}
+        />
         <NavBar isHamburgerMenuVisible={isHamburgerMenuVisible}>
-          <NavItem to="/" exact activeClassName="navLinkActive">
+          <NavItem
+            to="/"
+            exact
+            activeClassName="navLinkActive"
+            onClick={onHamburgerClick}
+          >
             <FormattedMessage {...messages.home} />
           </NavItem>
-          <NavItem to="/search-by-breed" activeClassName="navLinkActive">
+          <NavItem
+            to="/search-by-breed"
+            activeClassName="navLinkActive"
+            onClick={onHamburgerClick}
+          >
             <FormattedMessage {...messages.byBreed} />
           </NavItem>
-          <NavItem to="/game" activeClassName="navLinkActive">
+          <NavItem
+            to="/game"
+            activeClassName="navLinkActive"
+            onClick={onHamburgerClick}
+          >
             <FormattedMessage {...messages.game} />
           </NavItem>
         </NavBar>

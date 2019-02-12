@@ -24,6 +24,12 @@ const NavItem = styled(NavLink)`
   &:not(:last-of-type) {
     margin-right: 10px;
   }
+
+  /* @media (max-width: 700px) {
+    &:hover {
+      color: red;
+    }
+  } */
 `;
 
 export default NavItem;

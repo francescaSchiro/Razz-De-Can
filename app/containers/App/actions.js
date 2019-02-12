@@ -23,9 +23,8 @@ import { TOGGLE_HAMBURGER } from './constants';
  *
  * @return {object}    An action object with a type of HANDLE_RANDOM_CLICK
  */
-export function toggleHamburger(isHamburgerMenuVisible) {
+export function toggleHamburger() {
   return {
     type: TOGGLE_HAMBURGER,
-    isHamburgerMenuVisible,
   };
 }
