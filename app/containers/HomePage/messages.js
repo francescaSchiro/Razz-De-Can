@@ -5,7 +5,7 @@
  */
 import { defineMessages } from 'react-intl';
 
-export const scope = 'app.components.HomePage';
+export const scope = 'app.containers.HomePage';
 
 export default defineMessages({
   breedPlaceholder: {

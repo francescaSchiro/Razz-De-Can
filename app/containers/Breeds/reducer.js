@@ -22,8 +22,8 @@ import {
 // The initial state of the App
 export const initialState = fromJS({
   breeds: [],
-  breedsImgUrl: '',
-  selectedBreed: '',
+  breedsImgUrl: 'https://images.dog.ceo/breeds/affenpinscher/n02110627_946.jpg',
+  selectedBreed: 'affenpinscher',
 });
 
 function breedsReducer(state = initialState, action) {

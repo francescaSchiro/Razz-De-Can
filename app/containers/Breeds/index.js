@@ -11,12 +11,14 @@ import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import { FormattedMessage } from 'react-intl';
 
-import injectReducer from 'utils/injectReducer';
-import injectSaga from 'utils/injectSaga';
 import H2 from 'components/H2';
 import DogImg from 'components/DogImg';
 import Button from 'components/Button';
-import { loadImgUrl } from 'containers/HomePage/actions';
+import Select from 'components/Select';
+import injectReducer from 'utils/injectReducer';
+import injectSaga from 'utils/injectSaga';
+import BreedButtonWrapper from 'components/BreedButtonWrapper';
+import ContentWrapper from 'components/ContentWrapper';
 import {
   makeSelectBreeds,
   makeSelectBreedsImgUrl,
@@ -25,7 +27,6 @@ import {
 import reducer from './reducer';
 import saga from './saga';
 import { loadBreeds, loadBreedsImgUrl } from './actions';
-import ContentWrapper from './ContentWrapper';
 import messages from './messages';
 
 // Requests URLs
@@ -54,19 +55,22 @@ export class Breeds extends React.PureComponent {
     } = this.props;
     return (
       <ContentWrapper>
-        <H2>
-          <FormattedMessage {...messages.selectBreed} />
-        </H2>
-        <h1>{selectedBreed}</h1>
-        <div id="button-select-container">
-          <select name="breeds" value={selectedBreed} onChange={onSelectChange}>
+        <BreedButtonWrapper>
+          <H2>
+            <FormattedMessage {...messages.selectBreed} />
+          </H2>
+
+          <Select name="breeds" value={selectedBreed} onChange={onSelectChange}>
             {breeds.map(el => (
               <option key={el} value={el}>
                 {el}
               </option>
             ))}
-          </select>
+          </Select>
+        </BreedButtonWrapper>
 
+        <BreedButtonWrapper>
+          <H2>{selectedBreed}</H2>
           <Button
             type="button"
             onClick={() =>
@@ -75,7 +79,7 @@ export class Breeds extends React.PureComponent {
           >
             Random In Breed
           </Button>
-        </div>
+        </BreedButtonWrapper>
 
         <DogImg imgUrl={breedsImgUrl} />
       </ContentWrapper>

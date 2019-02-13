@@ -21,8 +21,8 @@ import injectSaga from 'utils/injectSaga';
 import Button from 'components/Button';
 import H2 from 'components/H2';
 import DogImg from 'components/DogImg/Loadable';
-import ContentWrapper from './ContentWrapper';
-import BreedButtonWrapper from './BreedButtonWrapper';
+import BreedButtonWrapper from 'components/BreedButtonWrapper';
+import ContentWrapper from 'components/ContentWrapper';
 import { loadImgUrl } from './actions';
 import reducer from './reducer';
 import saga from './saga';
@@ -37,7 +37,6 @@ export class HomePage extends React.PureComponent {
       <Fragment>
         <ContentWrapper>
           <BreedButtonWrapper>
-            {' '}
             <H2>
               {breedName === '' ? (
                 <FormattedMessage {...messages.breedPlaceholder} />
