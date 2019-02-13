@@ -12,12 +12,12 @@ import { loadImgUrlSuccess, loadImgUrlError } from './actions';
 /**
  * DogData(imgUrl, breedName) request/response handler
  */
-export function* getDogData() {
+export function* getDogData(action) {
   // select breedName from store for when I select the breed and want the picture?       TODO: better to make another getSpecificDogData() saga
   //   const breedName = yield select(makeSelectBreedName());
   //   const requestURL = `https://dog.ceo/api/breed/${breedName}/images/random`;
 
-  const requestURL = `https://dog.ceo/api/breeds/image/random`;
+  const requestURL = action.requestUrl;
 
   try {
     // Call our request helper (see 'utils/request)

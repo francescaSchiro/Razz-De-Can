@@ -1,17 +1,6 @@
 import axios from 'axios';
-/**
- * Parses the JSON returned by a network request
- *
- * @param  {object} response A response from a network request
- *
- * @return {object}          The parsed JSON from the request
- */
-// function parseJSON(response) {
-//   if (response.status === 204 || response.status === 205) {
-//     return null;
-//   }
-//   return response.json();
-// }
+
+import _ from 'lodash';
 
 /**
  * Checks if a network request came back fine, and throws an error if not
@@ -42,3 +31,30 @@ export default function request(url) {
   return axios.get(url).then(checkStatus);
   // .then(parseJson) => removed because axios already returns pardesJSON in res;
 }
+
+export const getCompleteBreedsList = obj =>
+  _.reduce(
+    obj,
+    (result, value, key) => {
+      result.push(key);
+
+      const newValue = value.map(el => `${key}-${el}`);
+
+      return result.concat(newValue);
+    },
+    [],
+  );
+
+/**
+ * Parses the JSON returned by a network request
+ *
+ * @param  {object} response A response from a network request
+ *
+ * @return {object}          The parsed JSON from the request
+ */
+// function parseJSON(response) {
+//   if (response.status === 204 || response.status === 205) {
+//     return null;
+//   }
+//   return response.json();
+// }

@@ -5,6 +5,7 @@
     "app.components.Header.home": "Cane-a-caso",
     "app.components.Header.byBreed": "Cerca per razza",
     "app.components.Header.game": "Indovina la razza",
+    "app.containers.Breeds.selectBreed": "Seleziona razza",
     "app.components.Footer.license.message": "Razz De Can © Tutti i diritti riservati",
     "app.components.Footer.author.message": "Autore: Francesca Schiro",
     "app.containers.LocaleToggle.it": "Italiano",

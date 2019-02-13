@@ -64,7 +64,8 @@ HomePage.propTypes = {
 
 export function mapDispatchToProps(dispatch) {
   return {
-    onRandomClick: () => dispatch(loadImgUrl()),
+    onRandomClick: () =>
+      dispatch(loadImgUrl(`https://dog.ceo/api/breeds/image/random`)),
   };
 }
 

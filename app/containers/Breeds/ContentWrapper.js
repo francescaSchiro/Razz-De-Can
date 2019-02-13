@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 const ContentWrapper = styled.div`
-  margin-top: 30px;
+  margin: 30px 0 50px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  height: 100px;
+  justify-content: space-evenly;
+  flex: 1;
+  width: 100vw;
   background-color: lightblue;
 `;
 
