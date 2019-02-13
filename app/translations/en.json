@@ -6,6 +6,7 @@
     "app.components.Header.byBreed": "Search by breed",
     "app.components.Header.game": "Guess the breed",
     "app.containers.Breeds.selectBreed": "Select breed:   ",
+    "app.containers.Breeds.randomInBreedButtonText": "Other pics",
     "app.components.Footer.license.message": "Dogs & Breeds © All Rights Reserved",
     "app.components.Footer.author.message": "Credits: Francesca Schiro",
     "app.containers.LocaleToggle.it": "Italian",

@@ -12,4 +12,8 @@ export default defineMessages({
     id: `${scope}.selectBreed`,
     defaultMessage: 'Seleziona una razza',
   },
+  randomInBreedButtonText: {
+    id: `${scope}.randomInBreedButtonText`,
+    defaultMessage: 'Altre immagini',
+  },
 });

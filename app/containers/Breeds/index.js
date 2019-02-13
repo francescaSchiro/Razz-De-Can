@@ -77,7 +77,7 @@ export class Breeds extends React.PureComponent {
               onRandomInBreedClick(randomInBreedUrl(selectedBreed))
             }
           >
-            Random In Breed
+            <FormattedMessage {...messages.randomInBreedButtonText} />
           </Button>
         </BreedButtonWrapper>
 
