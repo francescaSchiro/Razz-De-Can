@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const NavBar = styled.div`
+  height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -15,7 +16,8 @@ const NavBar = styled.div`
     transform: ${props =>
       props.isHamburgerMenuVisible ? 'translateY(0)' : 'translateY(-1000px)'};
     opacity: ${props => (props.isHamburgerMenuVisible ? '1' : '0')};
-    background-color: rgba(255, 255, 255, 0.8);
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    background-color: #b30000;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;

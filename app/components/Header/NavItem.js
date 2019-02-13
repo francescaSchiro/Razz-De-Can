@@ -2,6 +2,11 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const NavItem = styled(NavLink)`
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+
   text-transform: uppercase;
   font-weight: bold;
   font-weight: 600;
@@ -21,15 +26,31 @@ const NavItem = styled(NavLink)`
   &:active {
     color: #b30000;
   }
+
   &:not(:last-of-type) {
     margin-right: 10px;
   }
 
-  /* @media (max-width: 700px) {
-    &:hover {
-      color: red;
+  &:not(#logo) {
+    justify-content: center;
+  }
+  @media (max-width: 700px) {
+    &:not(:last-of-type) {
+      border-bottom: 1px solid white;
     }
-  } */
+    width: 100%;
+
+    &:not(#logo) {
+      justify-content: center;
+      color: white;
+      &:active {
+        color: black;
+      }
+      &:hover {
+        color: red;
+      }
+    }
+  }
 `;
 
 export default NavItem;

@@ -36,10 +36,20 @@ const GlobalStyle = createGlobalStyle`
 
 
   .navLinkActive {
-    font-weight:900;
+    /* font-weight:900; */
     color: red;
-    border-radius: 10px;
+    /* border-radius: 10px; */
+    @media (max-width: 700px) {
+      color: #b30000;
   }
+  }
+
+  i {
+    &:hover{
+      color:red;
+    }
+  }
+
 
   /* @font-face {
     font-family:  'Nunito', sans-serif;

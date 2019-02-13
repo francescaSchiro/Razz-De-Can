@@ -23,7 +23,7 @@ export class Header extends React.Component {
     const { isHamburgerMenuVisible, onHamburgerClick } = this.props;
     return (
       <Wrapper>
-        <NavItem to="/" exact>
+        <NavItem id="logo" to="/" exact>
           <H1>
             <i
               style={{
