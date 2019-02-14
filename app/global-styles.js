@@ -4,9 +4,9 @@ const GlobalStyle = createGlobalStyle`
   html,
   body {
     box-sizing: border-box;
+    min-height: 100vh;
+    width: 100vw;
     margin:0; padding:0;
-    height: 100%;
-    width: 100%;
     font-size: 16px;
   }
 
@@ -45,6 +45,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   i {
+    height: 45px;
     &:hover{
       color:red;
     }

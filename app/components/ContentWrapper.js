@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 
 const ContentWrapper = styled.div`
-  margin: 30px 0 50px 0;
+  margin-top: 75px;
+  padding-top: 15px;
+  width: 100%;
+  /*height of footer + 15*/
+  padding-bottom: 70px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  flex: 1;
-  width: 100vw;
+  justify-content: flex-start;
+  /* border: 2px solid brown; */
 `;
 
 export default ContentWrapper;

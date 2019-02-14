@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  height: 100vh;
-  width: 100vw;
-  padding: 15px;
-
+  /* to fix footer at bottom */
+  overflow-y: auto;
+  position: relative;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

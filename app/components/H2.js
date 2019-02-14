@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const H2 = styled.h2`
   text-align: right;
   font-size: 1rem;
-  margin: 0.2rem;
   font-family: 'Nunito', sans-serif;
   font-weight: 300;
   text-transform: uppercase;
@@ -20,7 +19,7 @@ const H2 = styled.h2`
     z-index: 1;
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 720px) {
     font-size: 0.7em;
   }
 `;

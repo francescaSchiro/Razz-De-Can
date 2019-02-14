@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const NavBar = styled.div`
   height: 100%;
+
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -12,6 +13,13 @@ const NavBar = styled.div`
   transition: all 0.5s ease-in-out;
 
   @media (max-width: 700px) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* azzero padding di Header Wrapper*/
+    padding: -15px;
+    height: 100vh;
+    width: 100vw;
     display: flex;
     transform: ${props =>
       props.isHamburgerMenuVisible ? 'translateY(0)' : 'translateY(-1000px)'};
@@ -21,15 +29,10 @@ const NavBar = styled.div`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
+    /* position: absolute; */
     z-index: 5;
 
-    margin: 0;
-    padding: 15px;
-    top: 0;
-    left: 0;
+    /* padding: 15px; */
     font-size: 1.2rem;
   }
 `;

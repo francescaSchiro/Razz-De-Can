@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  width: 100vw;
-  overflow-x: hidden;
-  padding: 0 15px;
+  width: 100%;
+  /* overflow: hidden; */
+  padding: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 75px;
 
   display: flex;
   flex-direction: row;

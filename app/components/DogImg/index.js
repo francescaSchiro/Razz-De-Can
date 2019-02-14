@@ -6,7 +6,7 @@ const DogImg = styled.div`
   background-image: url(${props => props.imgUrl});
   background-size: contain; /* <------ */
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: top center;
   height: 500px;
   width: 100vw;
   /* border: 2px solid red; */

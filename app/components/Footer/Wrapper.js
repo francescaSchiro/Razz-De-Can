@@ -1,18 +1,22 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  position: absolute;
-  padding: 10px;
-  width: 100%;
-  left: 0;
+  width: 100vw;
+  position: fixed;
   bottom: 0;
+  left: 0;
+
+  height: 55px;
+  padding: 15px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   font-family: 'Nunito', sans-serif;
   font-weight: 300;
-  border-top: 1px solid red;
+  background-color: #b30000;
+  color: white;
 `;
 
 export default Wrapper;

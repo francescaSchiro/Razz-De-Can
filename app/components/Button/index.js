@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Button = styled.button`
   margin-left: 30px;
-  padding: 10px 40px;
+  padding: 10px 30px;
   background-color: #ff0000;
   color: white;
   font-size: 1rem;
@@ -10,7 +10,7 @@ const Button = styled.button`
   border-radius: 10px;
   font-family: 'Nunito', sans-serif;
   letter-spacing: 0.05rem;
-  font-weight: 600;
+  font-weight: 300;
   cursor: pointer;
   &:hover {
     background-color: #ff3333;
@@ -24,7 +24,7 @@ const Button = styled.button`
     outline: none;
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 700px) {
     font-size: 0.7em;
     padding: 5px 20px;
   }

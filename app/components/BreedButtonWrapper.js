@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 const BreedButtonWrapper = styled.div`
-  padding: 0 30px;
+  padding: 0 15px;
   height: 50px;
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: row;
   align-items: center;

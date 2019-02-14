@@ -23,6 +23,10 @@ export class Header extends React.Component {
     const { isHamburgerMenuVisible, onHamburgerClick } = this.props;
     return (
       <Wrapper>
+        <Hamburger
+          onHamburgerClick={onHamburgerClick}
+          isHamburgerMenuVisible={isHamburgerMenuVisible}
+        />
         <NavItem id="logo" to="/" exact>
           <H1>
             <i
@@ -34,10 +38,6 @@ export class Header extends React.Component {
             <FormattedMessage {...messages.header} />
           </H1>
         </NavItem>
-        <Hamburger
-          onHamburgerClick={onHamburgerClick}
-          isHamburgerMenuVisible={isHamburgerMenuVisible}
-        />
         <NavBar isHamburgerMenuVisible={isHamburgerMenuVisible}>
           <NavItem
             to="/"
