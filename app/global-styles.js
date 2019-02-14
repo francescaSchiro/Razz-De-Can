@@ -45,7 +45,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   i {
-    height: 45px;
+    height: fit-content;
     &:hover{
       color:red;
     }

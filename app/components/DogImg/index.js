@@ -7,7 +7,7 @@ const DogImg = styled.div`
   background-size: contain; /* <------ */
   background-repeat: no-repeat;
   background-position: top center;
-  height: 500px;
+  height: ${props => (props.game ? '300px' : '500px')};
   width: 100vw;
   /* border: 2px solid red; */
 `;

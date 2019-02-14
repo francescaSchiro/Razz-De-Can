@@ -72,6 +72,7 @@ export class Breeds extends React.PureComponent {
         <BreedButtonWrapper>
           <H2>{selectedBreed}</H2>
           <Button
+            primary
             type="button"
             onClick={() =>
               onRandomInBreedClick(randomInBreedUrl(selectedBreed))

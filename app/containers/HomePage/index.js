@@ -44,7 +44,7 @@ export class HomePage extends React.PureComponent {
                 breedName
               )}
             </H2>
-            <Button type="button" onClick={onRandomClick}>
+            <Button primary type="button" onClick={onRandomClick}>
               {<FormattedMessage {...messages.buttonText} />}
             </Button>
           </BreedButtonWrapper>

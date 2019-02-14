@@ -28,7 +28,7 @@ const NavItem = styled(NavLink)`
   }
 
   &:not(:last-of-type) {
-    margin-right: 10px;
+    padding-right: 10px;
   }
 
   &:not(#logo) {
@@ -38,9 +38,9 @@ const NavItem = styled(NavLink)`
     &:not(:last-of-type) {
       border-bottom: 1px solid white;
     }
-    width: 100%;
 
     &:not(#logo) {
+      width: 100%;
       justify-content: center;
       color: white;
       &:active {
