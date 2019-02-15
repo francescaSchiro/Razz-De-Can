@@ -9,7 +9,8 @@ import React from 'react';
 import ContentWrapper from 'components/ContentWrapper';
 import Title from 'components/Title';
 import DogImg from 'components/DogImg';
-import Form from './Form';
+import H1 from 'components/H1';
+import ButtonContainer from './ButtonContainer';
 import ButtonSubmit from './ButtonSubmit';
 import ButtonRefresh from './ButtonRefresh';
 // import Input from './Input';
@@ -30,12 +31,13 @@ export class Game extends React.PureComponent {
           imgUrl="https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
         />
         {/* <Form onClick={e => this.checkWin(e)}>   */}
-        <Form>
+        <ButtonContainer>
           <ButtonSubmit>Option 1</ButtonSubmit>
           <ButtonSubmit>Option 2</ButtonSubmit>
           <ButtonSubmit>Option 3</ButtonSubmit>
           <ButtonSubmit>Option 4</ButtonSubmit>
-        </Form>
+        </ButtonContainer>
+        <H1>Score: 0</H1>
       </ContentWrapper>
     );
   }

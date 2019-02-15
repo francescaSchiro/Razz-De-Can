@@ -1,16 +1,23 @@
 import styled from 'styled-components';
 
 const ButtonSubmit = styled.button`
-  width: 100%;
-  padding: 15px 0;
-  border-bottom: 1px solid #9bbff5;
-  /* height: 35px; */
-  background-color: #5995ef;
+  min-width: 310px;
+  margin: 0 15px 15px 15px;
+  padding: 10px 30px;
+
+  font-size: 1rem;
+  border-radius: 5px;
+  background-color: black;
   color: #fff;
-  /* border-radius: 3px; */
   text-transform: uppercase;
   font-family: inherit;
+  font-weight: 600;
   letter-spacing: 0.05rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: red;
+  }
 `;
 
 export default ButtonSubmit;
