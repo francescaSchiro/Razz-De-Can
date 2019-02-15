@@ -26,10 +26,11 @@ function gameReducer(state = initialState, action) {
     case LOAD_BREEDS_SUCCESS:
       return state.set('breeds', getCompleteBreedsList(action.breedsObj));
     case LOAD_BREEDS_ERROR:
-      return state.set('error', action.error);
+      // eslint-disable-next-line no-console
+      return console.log(action.error);
 
     // eslint-disable-next-line prettier/prettier
-      // handle LOAD_CURRENT_IMG_URL request in saga
+    // handle LOAD_CURRENT_IMG_URL request in saga
     case LOAD_CURRENT_IMG_URL_SUCCESS:
       return state
         .set('currentImgUrl', action.imgUrl)
@@ -37,7 +38,8 @@ function gameReducer(state = initialState, action) {
         .set('buttonsBreeds', action.buttonsBreeds);
 
     case LOAD_CURRENT_IMG_URL_ERROR:
-      return state.set('error', action.error);
+      // eslint-disable-next-line no-console
+      return console.log(action.error);
 
     default:
       return state;

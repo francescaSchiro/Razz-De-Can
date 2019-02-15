@@ -23,6 +23,7 @@ import H2 from 'components/H2';
 import DogImg from 'components/DogImg/Loadable';
 import BreedButtonWrapper from 'components/BreedButtonWrapper';
 import ContentWrapper from 'components/ContentWrapper';
+import { randomImgUrl } from 'utils/request';
 import { loadImgUrl } from './actions';
 import reducer from './reducer';
 import saga from './saga';
@@ -63,8 +64,7 @@ HomePage.propTypes = {
 
 export function mapDispatchToProps(dispatch) {
   return {
-    onRandomClick: () =>
-      dispatch(loadImgUrl(`https://dog.ceo/api/breeds/image/random`)),
+    onRandomClick: () => dispatch(loadImgUrl(randomImgUrl)),
   };
 }
 

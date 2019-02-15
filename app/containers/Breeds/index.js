@@ -19,6 +19,7 @@ import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 import BreedButtonWrapper from 'components/BreedButtonWrapper';
 import ContentWrapper from 'components/ContentWrapper';
+import { breedsListUrl, randomInBreedUrl } from 'utils/request';
 import {
   makeSelectBreeds,
   makeSelectBreedsImgUrl,
@@ -30,9 +31,9 @@ import { loadBreeds, loadBreedsImgUrl } from './actions';
 import messages from './messages';
 
 // Requests URLs
-const breedsListUrl = 'https://dog.ceo/api/breeds/list/all';
-const randomInBreedUrl = breedName =>
-  `https://dog.ceo/api/breed/${breedName}/images/random`;
+// const breedsListUrl = 'https://dog.ceo/api/breeds/list/all';
+// const randomInBreedUrl = breedName =>
+//   `https://dog.ceo/api/breed/${breedName}/images/random`;
 
 // eslint-disable-next-line react/prefer-stateless-function
 export class Breeds extends React.PureComponent {
@@ -40,7 +41,7 @@ export class Breeds extends React.PureComponent {
    * when initial state breeds is not [], call handleLoadBreeds to load breeds
    */
   componentDidMount() {
-    if (this.props.breeds !== []) {
+    if (this.props.breedslength !== []) {
       this.props.handleLoadBreeds(breedsListUrl);
     }
   }

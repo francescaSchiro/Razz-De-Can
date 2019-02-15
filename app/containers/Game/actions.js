@@ -20,10 +20,10 @@ export function handleGetGameData(reqImgUrl, reqBreedsUrl, breeds) {
   };
 }
 
-export function loadBreeds(requestUrl) {
+export function loadBreeds(reqBreedsUrl) {
   return {
     type: LOAD_BREEDS,
-    requestUrl,
+    reqBreedsUrl,
   };
 }
 

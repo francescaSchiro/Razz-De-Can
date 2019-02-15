@@ -1,65 +1,109 @@
 /*
  * Game
- *
- *  at the '/search-by-breeds' route
+ * at the '/game' route 
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { createStructuredSelector } from 'reselect';
 
+import injectReducer from 'utils/injectReducer';
+import injectSaga from 'utils/injectSaga';
 import ContentWrapper from 'components/ContentWrapper';
 import Title from 'components/Title';
 import DogImg from 'components/DogImg';
 import H1 from 'components/H1';
+import { breedsListUrl, randomImgUrl } from 'utils/request';
 import ButtonContainer from './ButtonContainer';
 import ButtonSubmit from './ButtonSubmit';
 import ButtonRefresh from './ButtonRefresh';
-// import Input from './Input';
-// import OptionWrapper from './OptionWrapper';
-// import Label from './Label';
+import {
+  makeSelectCurrentImgUrl,
+  makeSelectBreeds,
+  makeSelectButtonsBreeds,
+} from './selectors';
+import { handleGetGameData, loadBreeds } from './actions';
+import reducer from './reducer';
+import saga from './saga';
 
 // eslint-disable-next-line react/prefer-stateless-function
 export class Game extends React.PureComponent {
+  componentDidMount() {
+    // if (this.props.breeds && this.props.breeds.length === 0) {
+    this.props.onLoadBreeds();
+    // }
+  }
+
   render() {
+    const {
+      currentImgUrl,
+      breeds,
+      buttonsBreeds,
+      onRefreshClick,
+      onButtonSubmitClick,
+    } = this.props;
     return (
       <ContentWrapper>
         <Title>Guess the breed</Title>
-        <ButtonRefresh>
+        <ButtonRefresh type="button" onClick={() => onRefreshClick(breeds)}>
           <i className="fas fa-sync-alt" />
         </ButtonRefresh>
-        <DogImg
-          game
-          imgUrl="https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-        />
+        <DogImg game imgUrl={currentImgUrl} />
         {/* <Form onClick={e => this.checkWin(e)}>   */}
+
         <ButtonContainer>
-          <ButtonSubmit>Option 1</ButtonSubmit>
-          <ButtonSubmit>Option 2</ButtonSubmit>
-          <ButtonSubmit>Option 3</ButtonSubmit>
-          <ButtonSubmit>Option 4</ButtonSubmit>
+          {buttonsBreeds.map(el => (
+            <ButtonSubmit key={el} value={el} onClick={onButtonSubmitClick}>
+              {el}
+            </ButtonSubmit>
+          ))}
         </ButtonContainer>
         <H1>Score: 0</H1>
       </ContentWrapper>
     );
   }
 }
-export default Game;
 
-// eslint-disable-next-line no-lone-blocks
-{
-  /* <OptionWrapper>
-<Input id="opt1" type="radio" name="option" value="breed1" />
-<Label htmlFor="opt1">Option 1</Label>
-</OptionWrapper>
+Game.propTypes = {
+  currentImgUrl: PropTypes.string,
+  // currentBreed: PropTypes.string,
+  breeds: PropTypes.array,
+  buttonsBreeds: PropTypes.array,
+  onLoadBreeds: PropTypes.func,
+  onRefreshClick: PropTypes.func,
+  onButtonSubmitClick: PropTypes.func,
+};
 
-<OptionWrapper>
-<Input id="opt2" type="radio" name="option" value="breed2" />
-<Label htmlFor="opt1">Option 2</Label>
-</OptionWrapper>
+export function mapDispatchToProps(dispatch) {
+  return {
+    onLoadBreeds: () => dispatch(loadBreeds(breedsListUrl)),
+    onRefreshClick: breeds =>
+      dispatch(handleGetGameData(randomImgUrl, breedsListUrl, breeds)),
+  };
 
-<OptionWrapper>
-<Input id="opt3" type="radio" name="option" value="breed3" />
-<Label htmlFor="opt1">Option 3</Label>
-</OptionWrapper>
-
-<ButtonSubmit type="submit">Submit</ButtonSubmit> */
+  // onButtonSubmitClick: () =>
+  //     dispatch(handleButtonSubmitClick(randomImgUrl, breedsListUrl, props.breeds)),
+  // };
 }
+
+const mapStateToProps = createStructuredSelector({
+  currentImgUrl: makeSelectCurrentImgUrl(),
+  breeds: makeSelectBreeds(),
+  buttonsBreeds: makeSelectButtonsBreeds(),
+});
+
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+);
+
+const withReducer = injectReducer({ key: 'game', reducer });
+const withSaga = injectSaga({ key: 'game', saga });
+
+export default compose(
+  withReducer,
+  withSaga,
+  withConnect,
+)(Game);

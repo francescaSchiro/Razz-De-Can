@@ -2,6 +2,12 @@ import axios from 'axios';
 
 import _ from 'lodash';
 
+// Request sUrls
+export const breedsListUrl = 'https://dog.ceo/api/breeds/list/all';
+export const randomImgUrl = 'https://dog.ceo/api/breeds/image/random';
+export const randomInBreedUrl = breedName =>
+  `https://dog.ceo/api/breed/${breedName}/images/random`;
+
 /**
  * Checks if a network request came back fine, and throws an error if not
  *
