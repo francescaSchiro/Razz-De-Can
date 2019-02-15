@@ -15,11 +15,13 @@ import ContentWrapper from 'components/ContentWrapper';
 import Title from 'components/Title';
 import DogImg from 'components/DogImg';
 import H1 from 'components/H1';
+import H2 from 'components/H2';
 import { breedsListUrl, randomImgUrl } from 'utils/request';
 import ButtonContainer from './ButtonContainer';
 import ButtonSubmit from './ButtonSubmit';
 import ButtonRefresh from './ButtonRefresh';
 import {
+  makeSelectClickToStartaNewGame,
   makeSelectCurrentImgUrl,
   makeSelectBreeds,
   makeSelectButtonsBreeds,
@@ -38,6 +40,7 @@ export class Game extends React.PureComponent {
 
   render() {
     const {
+      clickToStartaNewGame,
       currentImgUrl,
       breeds,
       buttonsBreeds,
@@ -47,26 +50,34 @@ export class Game extends React.PureComponent {
     return (
       <ContentWrapper>
         <Title>Guess the breed</Title>
+        {clickToStartaNewGame ? <H2>Click below to start a new game</H2> : null}
+
         <ButtonRefresh type="button" onClick={() => onRefreshClick(breeds)}>
           <i className="fas fa-sync-alt" />
         </ButtonRefresh>
         <DogImg game imgUrl={currentImgUrl} />
         {/* <Form onClick={e => this.checkWin(e)}>   */}
 
-        <ButtonContainer>
-          {buttonsBreeds.map(el => (
-            <ButtonSubmit key={el} value={el} onClick={onButtonSubmitClick}>
-              {el}
-            </ButtonSubmit>
-          ))}
-        </ButtonContainer>
-        <H1>Score: 0</H1>
+        {clickToStartaNewGame ? null : (
+          <>
+            <ButtonContainer>
+              {buttonsBreeds.map(el => (
+                <ButtonSubmit key={el} value={el} onClick={onButtonSubmitClick}>
+                  {el}
+                </ButtonSubmit>
+              ))}
+            </ButtonContainer>
+
+            <H1>Score: 0</H1>
+          </>
+        )}
       </ContentWrapper>
     );
   }
 }
 
 Game.propTypes = {
+  clickToStartaNewGame: PropTypes.bool,
   currentImgUrl: PropTypes.string,
   // currentBreed: PropTypes.string,
   breeds: PropTypes.array,
@@ -89,6 +100,7 @@ export function mapDispatchToProps(dispatch) {
 }
 
 const mapStateToProps = createStructuredSelector({
+  clickToStartaNewGame: makeSelectClickToStartaNewGame(),
   currentImgUrl: makeSelectCurrentImgUrl(),
   breeds: makeSelectBreeds(),
   buttonsBreeds: makeSelectButtonsBreeds(),

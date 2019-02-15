@@ -16,6 +16,7 @@ import {
 export const initialState = fromJS({
   currentImgUrl: '',
   currentBreed: '',
+  clickToStartaNewGame: true,
   breeds: [],
   buttonsBreeds: [],
 });
@@ -33,6 +34,7 @@ function gameReducer(state = initialState, action) {
     // handle LOAD_CURRENT_IMG_URL request in saga
     case LOAD_CURRENT_IMG_URL_SUCCESS:
       return state
+        .set('clickToStartaNewGame', false)
         .set('currentImgUrl', action.imgUrl)
         .set('currentBreed', action.breedName)
         .set('buttonsBreeds', action.buttonsBreeds);
