@@ -14,7 +14,8 @@ import {
 } from './constants';
 
 export const initialState = fromJS({
-  currentImgUrl: '',
+  currentImgUrl:
+    'https://www.animalsheltering.org/sites/default/files/images/magazine/asm-spring-2017-guessing-games.jpg',
   currentBreed: '',
   clickToStartaNewGame: true,
   breeds: [],
