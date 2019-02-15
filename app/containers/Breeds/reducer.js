@@ -1,5 +1,5 @@
 /*
- * HomeReducer
+ * Breeds Reducer
  *
  * The reducer takes care of our data. Using actions, we can change our
  * application state.

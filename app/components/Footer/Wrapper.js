@@ -14,9 +14,9 @@ const Wrapper = styled.div`
   align-items: center;
   font-size: 0.6rem;
   font-family: 'Nunito', sans-serif;
-  font-weight: 300;
-  background-color: #b30000;
-  color: white;
+  font-weight: 600;
+  background-color: white;
+  color: #b30000;
 `;
 
 export default Wrapper;
