@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   /* to fix footer at bottom */
-  overflow-y: auto;
   position: relative;
   min-height: 100vh;
   display: flex;

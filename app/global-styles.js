@@ -3,6 +3,10 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
   html,
   body {
+    ::-webkit-scrollbar {
+    display: none;
+  }
+
     box-sizing: border-box;
     min-height: 100vh;
     width: 100vw;
