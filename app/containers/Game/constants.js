@@ -10,3 +10,7 @@ export const LOAD_CURRENT_IMG_URL_ERROR = 'app/Game/LOAD_CURRENT_IMG_URL_ERROR';
 export const LOAD_BREEDS_SUCCESS = 'app/Game/LOAD_BREEDS_SUCCESS';
 export const LOAD_BREEDS = 'app/Game/LOAD_BREEDS';
 export const LOAD_BREEDS_ERROR = 'app/Game/LOAD_BREEDS_ERROR';
+
+export const HANDLE_BUTTON_SUBMIT_CLICK = 'app/Game/HANDLE_BUTTON_SUBMIT_CLICK';
+export const HANDLE_WIN = 'app/Game/HANDLE_WIN';
+export const HANDLE_LOSS = 'app/Game/HANDLE_WIN';

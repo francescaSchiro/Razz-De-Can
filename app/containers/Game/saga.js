@@ -2,13 +2,46 @@ import { takeEvery, call, put } from 'redux-saga/effects';
 import { without, sampleSize, shuffle } from 'lodash';
 
 import request from 'utils/request';
-import { HANDLE_GET_GAME_DATA, LOAD_BREEDS } from './constants';
+import {
+  HANDLE_GET_GAME_DATA,
+  LOAD_BREEDS,
+  HANDLE_BUTTON_SUBMIT_CLICK,
+} from './constants';
 import {
   loadBreedsSuccess,
   loadBreedsError,
   loadCurrentImgUrlSuccess,
   loadCurrentImgUrlError,
+  handleWin,
+  handleLoss,
 } from './actions';
+
+export function* checkWin(action) {
+  if (action.currentBreed === action.el) {
+    try {
+      // const winnerButton = document.getElementById(action.el);
+      // yield put(winnerButton.classList.add('win'));
+      yield put(handleWin(action.el));
+    } catch (err) {
+      console.log(err);
+    }
+  } else {
+    try {
+      // const winnerButton = document.getElementById(action.currentBreed);
+      // const currentButton = document.getElementById(action.el);
+      // winnerButton.classList.add('win');
+      // currentButton.classList.add('loss');
+      yield put(handleLoss(action.el));
+    } catch (err) {
+      console.log(err);
+    }
+  }
+}
+
+//   return action.currentBreed === action.el
+//     ?
+//     : yield put(handleLoss(action.el));
+// }
 
 export function* getBreeds(action) {
   try {
@@ -49,8 +82,7 @@ export function* getGameData(action) {
 }
 
 export default function* gameData() {
-  yield [
-    takeEvery(LOAD_BREEDS, getBreeds),
-    takeEvery(HANDLE_GET_GAME_DATA, getGameData),
-  ];
+  yield takeEvery(LOAD_BREEDS, getBreeds);
+  yield takeEvery(HANDLE_GET_GAME_DATA, getGameData);
+  // yield takeEvery(HANDLE_BUTTON_SUBMIT_CLICK, checkWin);
 }

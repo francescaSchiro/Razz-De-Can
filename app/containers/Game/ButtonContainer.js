@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const ButtonContainer = styled.div`
+  overflow: hidden;
   padding: 30px 15px 15px 15px;
   margin-top: 15px;
   margin-bottom: 15px;

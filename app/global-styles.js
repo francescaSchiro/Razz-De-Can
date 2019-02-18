@@ -55,11 +55,37 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  /* .win {
+    background-color: green!important;
+    cursor: not-allowed;
+    ::after {
+        content:  '🙂';
+        position: absolute;
+        right:0;
+        bottom: 10%;
+        font-size: 1.5rem;
+        color: white;
+      }
+  }
 
-  /* @font-face {
-    font-family:  'Nunito', sans-serif;
-    src: url("https://fonts.googleapis.com/css?family=Nunito:300,400,600");
+  .loss {    
+    background-color: red!important;
+    cursor: not-allowed;
+    ::after {
+        content:  '☹️';
+        position: absolute;
+        right:0;
+        bottom: 10%;
+        font-size: 1.5rem;
+        color: white;
+      }
   } */
+
+
+/* @font-face {
+  font-family:  'Nunito', sans-serif;
+  src: url("https://fonts.googleapis.com/css?family=Nunito:300,400,600");
+} */
 
 
 `;

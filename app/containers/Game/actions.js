@@ -9,7 +9,32 @@ import {
   LOAD_BREEDS,
   LOAD_BREEDS_SUCCESS,
   LOAD_BREEDS_ERROR,
+  HANDLE_BUTTON_SUBMIT_CLICK,
+  HANDLE_WIN,
+  HANDLE_LOSS,
 } from './constants';
+
+export function handleButtonSubmitClick(currentBreed, el) {
+  return {
+    type: HANDLE_BUTTON_SUBMIT_CLICK,
+    currentBreed,
+    el,
+  };
+}
+
+export function handleWin(el) {
+  return {
+    type: HANDLE_WIN,
+    el,
+  };
+}
+
+export function handleLoss(el) {
+  return {
+    type: HANDLE_LOSS,
+    el,
+  };
+}
 
 export function handleGetGameData(reqImgUrl, reqBreedsUrl, breeds) {
   return {

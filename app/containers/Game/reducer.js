@@ -11,6 +11,9 @@ import {
   LOAD_CURRENT_IMG_URL_ERROR,
   LOAD_BREEDS_SUCCESS, // same as in Breeds => set breeds
   LOAD_BREEDS_ERROR,
+  HANDLE_BUTTON_SUBMIT_CLICK,
+  // HANDLE_WIN,
+  // HANDLE_LOSS,
 } from './constants';
 
 export const initialState = fromJS({
@@ -20,6 +23,10 @@ export const initialState = fromJS({
   clickToStartaNewGame: true,
   breeds: [],
   buttonsBreeds: [],
+  clicked: '',
+  disabled: false,
+  score: 0,
+  match: 0,
 });
 
 function gameReducer(state = initialState, action) {
@@ -38,11 +45,24 @@ function gameReducer(state = initialState, action) {
         .set('clickToStartaNewGame', false)
         .set('currentImgUrl', action.imgUrl)
         .set('currentBreed', action.breedName)
-        .set('buttonsBreeds', action.buttonsBreeds);
+        .set('buttonsBreeds', action.buttonsBreeds)
+        .set('disabled', false);
 
     case LOAD_CURRENT_IMG_URL_ERROR:
       // eslint-disable-next-line no-console
       return console.log(action.error);
+
+    case HANDLE_BUTTON_SUBMIT_CLICK:
+      return action.currentBreed === action.el
+        ? state
+            .set('disabled', true)
+            .set('score', state.get('score') + 1)
+            .set('match', state.get('match') + 1)
+            .set('clicked', action.el)
+        : state
+            .set('disabled', true)
+            .set('match', state.get('match') + 1)
+            .set('clicked', action.el);
 
     default:
       return state;
@@ -50,3 +70,12 @@ function gameReducer(state = initialState, action) {
 }
 
 export default gameReducer;
+// case HANDLE_WIN:
+//   // document.getElementById(action.el).classList.add('win');
+//   return state
+//     .set('disabled', true)
+//     .set('score', state.get('score') + 1)
+//     .set('match', state.get('match') + 1);
+// case HANDLE_LOSS:
+//   // eslint-disable-next-line no-console
+//   return state.set('disabled', true).set('match', state.get('match') + 1);

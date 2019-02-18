@@ -23,10 +23,19 @@ import ButtonRefresh from './ButtonRefresh';
 import {
   makeSelectClickToStartaNewGame,
   makeSelectCurrentImgUrl,
+  makeSelectCurrentBreed,
   makeSelectBreeds,
   makeSelectButtonsBreeds,
+  makeSelectDisabled,
+  makeSelectScore,
+  makeSelectMatch,
+  makeSelectClicked,
 } from './selectors';
-import { handleGetGameData, loadBreeds } from './actions';
+import {
+  handleGetGameData,
+  loadBreeds,
+  handleButtonSubmitClick,
+} from './actions';
 import reducer from './reducer';
 import saga from './saga';
 
@@ -42,7 +51,12 @@ export class Game extends React.PureComponent {
     const {
       clickToStartaNewGame,
       currentImgUrl,
+      currentBreed,
       breeds,
+      disabled,
+      clicked,
+      score,
+      match,
       buttonsBreeds,
       onRefreshClick,
       onButtonSubmitClick,
@@ -62,13 +76,24 @@ export class Game extends React.PureComponent {
           <>
             <ButtonContainer>
               {buttonsBreeds.map(el => (
-                <ButtonSubmit key={el} value={el} onClick={onButtonSubmitClick}>
+                <ButtonSubmit
+                  clicked={clicked}
+                  currentBreed={currentBreed}
+                  key={el}
+                  disabled={disabled}
+                  id={el}
+                  value={el}
+                  // disabled={win !== ''}
+                  onClick={() => onButtonSubmitClick(currentBreed, el)}
+                >
                   {el}
                 </ButtonSubmit>
               ))}
             </ButtonContainer>
 
-            <H1>Score: 0</H1>
+            <H1>
+              {score} won / {match} tries
+            </H1>
           </>
         )}
       </ContentWrapper>
@@ -79,9 +104,13 @@ export class Game extends React.PureComponent {
 Game.propTypes = {
   clickToStartaNewGame: PropTypes.bool,
   currentImgUrl: PropTypes.string,
-  // currentBreed: PropTypes.string,
+  currentBreed: PropTypes.string,
   breeds: PropTypes.array,
   buttonsBreeds: PropTypes.array,
+  clicked: PropTypes.string,
+  disabled: PropTypes.bool,
+  score: PropTypes.number,
+  match: PropTypes.number,
   onLoadBreeds: PropTypes.func,
   onRefreshClick: PropTypes.func,
   onButtonSubmitClick: PropTypes.func,
@@ -92,18 +121,21 @@ export function mapDispatchToProps(dispatch) {
     onLoadBreeds: () => dispatch(loadBreeds(breedsListUrl)),
     onRefreshClick: breeds =>
       dispatch(handleGetGameData(randomImgUrl, breedsListUrl, breeds)),
+    onButtonSubmitClick: (currentBreed, el) =>
+      dispatch(handleButtonSubmitClick(currentBreed, el)),
   };
-
-  // onButtonSubmitClick: () =>
-  //     dispatch(handleButtonSubmitClick(randomImgUrl, breedsListUrl, props.breeds)),
-  // };
 }
 
 const mapStateToProps = createStructuredSelector({
   clickToStartaNewGame: makeSelectClickToStartaNewGame(),
   currentImgUrl: makeSelectCurrentImgUrl(),
+  currentBreed: makeSelectCurrentBreed(),
   breeds: makeSelectBreeds(),
   buttonsBreeds: makeSelectButtonsBreeds(),
+  disabled: makeSelectDisabled(),
+  clicked: makeSelectClicked(),
+  score: makeSelectScore(),
+  match: makeSelectMatch(),
 });
 
 const withConnect = connect(
@@ -119,3 +151,8 @@ export default compose(
   withSaga,
   withConnect,
 )(Game);
+
+// (currentBreed, el) =>
+//       currentBreed === el
+//         ? dispatch(handleWin(currentBreed, el))
+//         : dispatch(handleLoss(currentBreed, el)),
