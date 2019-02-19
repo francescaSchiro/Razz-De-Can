@@ -70,7 +70,6 @@ export class Game extends React.PureComponent {
           <i className="fas fa-sync-alt" />
         </ButtonRefresh>
         <DogImg game imgUrl={currentImgUrl} />
-        {/* <Form onClick={e => this.checkWin(e)}>   */}
 
         {clickToStartaNewGame ? null : (
           <>
@@ -83,7 +82,6 @@ export class Game extends React.PureComponent {
                   disabled={disabled}
                   id={el}
                   value={el}
-                  // disabled={win !== ''}
                   onClick={() => onButtonSubmitClick(currentBreed, el)}
                 >
                   {el}

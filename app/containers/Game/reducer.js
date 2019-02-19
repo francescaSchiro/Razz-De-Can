@@ -27,7 +27,7 @@ export const initialState = fromJS({
   clicked: '',
   disabled: false,
   score: 0,
-  match: 0,
+  match: -1,
 });
 
 function gameReducer(state = initialState, action) {
@@ -47,7 +47,8 @@ function gameReducer(state = initialState, action) {
         .set('currentImgUrl', action.imgUrl)
         .set('currentBreed', action.breedName)
         .set('buttonsBreeds', action.buttonsBreeds)
-        .set('disabled', false);
+        .set('disabled', false)
+        .set('match', state.get('match') + 1)
 
     case LOAD_CURRENT_IMG_URL_ERROR:
       // eslint-disable-next-line no-console
@@ -71,12 +72,4 @@ function gameReducer(state = initialState, action) {
 }
 
 export default gameReducer;
-// case HANDLE_WIN:
-//   // document.getElementById(action.el).classList.add('win');
-//   return state
-//     .set('disabled', true)
-//     .set('score', state.get('score') + 1)
-//     .set('match', state.get('match') + 1);
-// case HANDLE_LOSS:
-//   // eslint-disable-next-line no-console
-//   return state.set('disabled', true).set('match', state.get('match') + 1);
+
