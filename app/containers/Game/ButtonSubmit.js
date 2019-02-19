@@ -14,7 +14,6 @@ function getWinningProps(props) {
     font-size: 1.5rem;
     color: white;
   };`;
-    // eslint-disable-next-line no-cond-assign
   }
   if (
     props.disabled &&
@@ -33,7 +32,10 @@ function getWinningProps(props) {
       color: white;
     };`;
   }
-  return 'black';
+  if (props.disabled) {
+    return 'background-color: grey!important; cursor: not-allowed;';
+  }
+  return 'background-color: black';
 }
 
 const ButtonSubmit = styled.button`
