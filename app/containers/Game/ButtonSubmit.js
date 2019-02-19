@@ -1,83 +1,40 @@
 /* eslint-disable no-nested-ternary */
 import styled from 'styled-components';
 
-// const getBgColor = props => {
-//   switch (props.win) {
-//     case true:
-//       return 'green';
-//     case false:
-//       return 'red';
-//     default:
-//       return 'black';
-//   }
-// };
-// const getAfter = props => {
-// switch (props.win) {
-//   case 'yes':
-//     return `
-//       &::after {
-//         content: '🙂';
-//         position: absolute;
-//         right: 0;
-//         bottom: 10%;
-//         font-size: 1.5rem;
-//         color: white;
-//       };`;
-//   case 'no':
-//     return `
-//       &::after {
-//         content:  '☹️';
-//         position: absolute;
-//         right:0;
-//         bottom: 10%;
-//         font-size: 1.5rem;
-//         color: white;
-//       };`;
-
-//   default:
-//     return '';
-// }
-// };
-
-const getNewProps = props => {
-  if (props.disabled) {
-    return props.id === props.currentBreed
-      ? `
-      background-color: green!important;
-      cursor: not-allowed;
+function getWinningProps(props) {
+  if (props.disabled && props.id === props.currentBreed) {
+    return `
+    background-color: green!important;
+    cursor: not-allowed;
+  &::after {
+    content: '🙂';
+    position: absolute;
+    right: 0;
+    bottom: 10%;
+    font-size: 1.5rem;
+    color: white;
+  };`;
+    // eslint-disable-next-line no-cond-assign
+  }
+  if (
+    props.disabled &&
+    props.clicked === props.id &&
+    props.clicked !== props.currentBreed
+  ) {
+    return `
+    background-color: red!important;
+    cursor: not-allowed;
     &::after {
-      content: '🙂';
+      content:  '☹️';
       position: absolute;
-      right: 0;
+      right:0;
       bottom: 10%;
       font-size: 1.5rem;
       color: white;
-    };`
-      : `
-      background-color: red!important;
-      cursor: not-allowed;
-      &::after {
-        content:  '☹️';
-        position: absolute;
-        right:0;
-        bottom: 10%;
-        font-size: 1.5rem;
-        color: white;
-      };`;
-  }
-  return '';
-};
-
-const getBgColor = props => {
-  if (props.disabled && props.id === props.currentBreed) {
-    return 'green';
-    // eslint-disable-next-line no-cond-assign
-  }
-  if (props.id === props.clicked) {
-    return 'red';
+    };`;
   }
   return 'black';
-};
+}
 
 const ButtonSubmit = styled.button`
   position: relative;
@@ -88,7 +45,6 @@ const ButtonSubmit = styled.button`
   font-size: 1rem;
   border-radius: 5px;
   background-color: black;
-  background-color: ${props => getBgColor(props)};
 
   color: #fff;
   text-transform: uppercase;
@@ -104,7 +60,7 @@ const ButtonSubmit = styled.button`
     background-color: red;
   }`};
 
-  ${props => getNewProps(props)};
+  ${props => getWinningProps(props)};
 `;
 
 export default ButtonSubmit;
