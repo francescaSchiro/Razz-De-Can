@@ -14,7 +14,7 @@ This project was started from the **clean** code of [**react-boilerplate**](http
 
 ---
 - Start with: `npm start`
-- Deploy on tunnel domain: `npm start:tunnel`
+- Deploy on tunnel domain: `npm run start:tunnel`
 ---
 
 Uses the [Dog API](https://dog.ceo/dog-api)
