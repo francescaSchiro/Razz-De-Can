@@ -59,11 +59,11 @@ function gameReducer(state = initialState, action) {
         ? state
           .set('disabled', true)
           .set('score', state.get('score') + 1)
-          .set('match', state.get('match') + 1)
+          // .set('match', state.get('match') + 1)
           .set('clicked', action.el)
         : state
           .set('disabled', true)
-          .set('match', state.get('match') + 1)
+          // .set('match', state.get('match') + 1)
           .set('clicked', action.el);
 
     default:

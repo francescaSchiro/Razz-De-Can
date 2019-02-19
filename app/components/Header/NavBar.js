@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import styled from 'styled-components';
 
 const NavBar = styled.div`
@@ -7,6 +8,7 @@ const NavBar = styled.div`
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+  background-color: white;
 
   font-size: 0.7rem;
 
@@ -29,7 +31,6 @@ const NavBar = styled.div`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    /* position: absolute; */
     z-index: 5;
 
     /* padding: 15px; */

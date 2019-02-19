@@ -10,6 +10,7 @@ const ButtonContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  z-index: 1;
 
   border-top: 2px solid red;
   border-bottom: 2px solid red;

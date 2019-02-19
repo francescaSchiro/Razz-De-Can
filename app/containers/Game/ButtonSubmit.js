@@ -41,7 +41,7 @@ const ButtonSubmit = styled.button`
   min-width: 310px;
   margin: 0 15px 15px 15px;
   padding: 10px 30px;
-
+  z-index: 1;
   font-size: 1rem;
   border-radius: 5px;
   background-color: black;
