@@ -24,4 +24,5 @@ Uses the [Dog API](https://dog.ceo/dog-api)
 - [x] FormattedMessages;
 - [x] FontFaceObserver;
 - [ ] Style responsive with Grommet / MaterialUI / ReactStrap / SemanticUi
+- [ ] deploy on heroku https://devcenter.heroku.com/articles/getting-started-with-nodejs
 
