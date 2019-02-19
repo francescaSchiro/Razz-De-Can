@@ -12,7 +12,7 @@ import { createStructuredSelector } from 'reselect';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 import ContentWrapper from 'components/ContentWrapper';
-import Title from 'components/Title';
+// import Title from 'components/Title';
 import DogImg from 'components/DogImg';
 import H1 from 'components/H1';
 import H2 from 'components/H2';
@@ -66,7 +66,7 @@ export class Game extends React.PureComponent {
     } = this.props;
     return (
       <ContentWrapper>
-        <Title>Guess the breed</Title>
+        {/* <Title>Guess the breed</Title> */}
         {clickToStartaNewGame === true || undefined ? (
           <H2>Click below to start a new game</H2>
         ) : null}
@@ -103,7 +103,7 @@ export class Game extends React.PureComponent {
                 New game
               </ButtonRefresh>
               <H1>
-                {score} won / {match} tries
+                {score} / {match}
               </H1>
               <ButtonRefresh
                 next
