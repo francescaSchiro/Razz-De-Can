@@ -13,8 +13,6 @@ import {
   LOAD_BREEDS_SUCCESS, // same as in Breeds => set breeds
   LOAD_BREEDS_ERROR,
   HANDLE_BUTTON_SUBMIT_CLICK,
-  // HANDLE_WIN,
-  // HANDLE_LOSS,
 } from './constants';
 
 export const initialState = fromJS({
