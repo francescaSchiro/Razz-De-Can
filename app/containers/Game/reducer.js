@@ -27,7 +27,7 @@ export const initialState = fromJS({
   clicked: '',
   disabled: false,
   score: 0,
-  match: 0,
+  match: -1,
 });
 
 function gameReducer(state = initialState, action) {
@@ -42,13 +42,23 @@ function gameReducer(state = initialState, action) {
     // eslint-disable-next-line prettier/prettier
     // handle LOAD_CURRENT_IMG_URL request in saga
     case LOAD_CURRENT_IMG_URL_SUCCESS:
-      return state
-        .set('clickToStartaNewGame', false)
-        .set('currentImgUrl', action.imgUrl)
-        .set('currentBreed', action.breedName)
-        .set('buttonsBreeds', action.buttonsBreeds)
-        .set('disabled', false)
-      // .set('match', state.get('match') + 1)
+      return state.get('clicked') === '' ?
+        state
+          .set('clickToStartaNewGame', false)
+          .set('currentImgUrl', action.imgUrl)
+          .set('currentBreed', action.breedName)
+          .set('buttonsBreeds', action.buttonsBreeds)
+          .set('disabled', false)
+          .set('match', state.get('match') + 1) :
+        state
+          .set('clickToStartaNewGame', false)
+          .set('currentImgUrl', action.imgUrl)
+          .set('currentBreed', action.breedName)
+          .set('buttonsBreeds', action.buttonsBreeds)
+          .set('disabled', false)
+
+
+
 
     case LOAD_CURRENT_IMG_URL_ERROR:
       // eslint-disable-next-line no-console
