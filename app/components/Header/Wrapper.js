@@ -18,6 +18,7 @@ const Wrapper = styled.div`
   font-size: 0.7rem;
 
   transition: all 0.5s ease-in-out;
+  z-index: 1000;
 `;
 
 export default Wrapper;
