@@ -20,6 +20,7 @@ import { breedsListUrl, randomImgUrl } from 'utils/request';
 import ButtonContainer from './ButtonContainer';
 import ButtonSubmit from './ButtonSubmit';
 import ButtonRefresh from './ButtonRefresh';
+import StatsContainer from './StatsContainer';
 import {
   makeSelectClickToStartaNewGame,
   makeSelectCurrentImgUrl,
@@ -89,9 +90,22 @@ export class Game extends React.PureComponent {
               ))}
             </ButtonContainer>
 
-            <H1>
-              {score} won / {match} tries
-            </H1>
+            <StatsContainer>
+              <H1>
+                {score} won / {match} tries
+              </H1>
+              <ButtonRefresh
+                next
+                type="button"
+                onClick={() => onRefreshClick(breeds)}
+              >
+                Next
+                <i
+                  className="fa fa-angle-right"
+                  style={{ marginLeft: '15px' }}
+                />
+              </ButtonRefresh>
+            </StatsContainer>
           </>
         )}
       </ContentWrapper>

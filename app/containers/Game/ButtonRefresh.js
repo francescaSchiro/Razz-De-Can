@@ -4,7 +4,7 @@ const ButtonRefresh = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 310px;
+  width: ${props => (props.next ? 'auto' : '310px')};
   padding: 15px;
   border-radius: 5px;
   margin-bottom: 15px;
@@ -32,8 +32,7 @@ const ButtonRefresh = styled.button`
   }
   &:active > * {
     transition: transform 0.1s ease-in-out;
-
-    transform: rotate(90deg);
+    transform: ${props => (props.next ? 'scale(1.5)' : 'rotate(90deg)')};
   }
   @media (max-width: 700px) {
     &:hover {
