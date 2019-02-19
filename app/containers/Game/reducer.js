@@ -13,6 +13,8 @@ import {
   LOAD_BREEDS_SUCCESS, // same as in Breeds => set breeds
   LOAD_BREEDS_ERROR,
   HANDLE_BUTTON_SUBMIT_CLICK,
+  RESET_GAME_SUCCESS,
+  RESET_GAME_ERROR,
 } from './constants';
 
 export const initialState = fromJS({
@@ -40,7 +42,7 @@ function gameReducer(state = initialState, action) {
     // eslint-disable-next-line prettier/prettier
     // handle LOAD_CURRENT_IMG_URL request in saga
     case LOAD_CURRENT_IMG_URL_SUCCESS:
-      return state.get('clicked') === '' ?
+      return state.get('disabled') === false ?
         state
           .set('clickToStartaNewGame', false)
           .set('currentImgUrl', action.imgUrl)
@@ -54,9 +56,6 @@ function gameReducer(state = initialState, action) {
           .set('currentBreed', action.breedName)
           .set('buttonsBreeds', action.buttonsBreeds)
           .set('disabled', false)
-
-
-
 
     case LOAD_CURRENT_IMG_URL_ERROR:
       // eslint-disable-next-line no-console
@@ -73,6 +72,19 @@ function gameReducer(state = initialState, action) {
           .set('disabled', true)
           .set('match', state.get('match') + 1)
           .set('clicked', action.el);
+
+    case RESET_GAME_SUCCESS:
+      return state
+        .set('clickToStartaNewGame', false)
+        .set('currentImgUrl', action.imgUrl)
+        .set('currentBreed', action.breedName)
+        .set('buttonsBreeds', action.buttonsBreeds)
+        .set('disabled', false)
+        .set('match', 0)
+        .set('score', 0)
+    case RESET_GAME_ERROR:
+      // eslint-disable-next-line no-console
+      return console.log(action.error);
 
     default:
       return state;

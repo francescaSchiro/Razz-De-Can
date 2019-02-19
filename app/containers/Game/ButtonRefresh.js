@@ -4,7 +4,7 @@ const ButtonRefresh = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: ${props => (props.next ? 'auto' : '310px')};
+  width: ${props => (props.next || props.new ? '47px' : '310px')};
   padding: 15px;
   border-radius: 5px;
   margin-bottom: 15px;

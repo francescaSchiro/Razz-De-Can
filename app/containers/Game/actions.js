@@ -12,6 +12,9 @@ import {
   HANDLE_BUTTON_SUBMIT_CLICK,
   HANDLE_WIN,
   HANDLE_LOSS,
+  HANDLE_RESET_GAME,
+  RESET_GAME_SUCCESS,
+  RESET_GAME_ERROR,
 } from './constants';
 
 export function handleButtonSubmitClick(currentBreed, el) {
@@ -79,5 +82,29 @@ export function loadCurrentImgUrlError(error) {
   return {
     type: LOAD_CURRENT_IMG_URL_ERROR,
     error,
+  };
+}
+
+export function handleResetGame(reqImgUrl, reqBreedsUrl, breeds) {
+  return {
+    type: HANDLE_RESET_GAME,
+    reqImgUrl,
+    reqBreedsUrl,
+    breeds,
+  };
+}
+
+export function resetGameSuccess(imgUrl, breedName, buttonsBreeds) {
+  return {
+    type: RESET_GAME_SUCCESS,
+    imgUrl,
+    breedName,
+    buttonsBreeds,
+  };
+}
+export function resetGameError(err) {
+  return {
+    type: RESET_GAME_ERROR,
+    err,
   };
 }

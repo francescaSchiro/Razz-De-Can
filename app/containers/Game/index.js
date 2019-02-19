@@ -36,6 +36,7 @@ import {
   handleGetGameData,
   loadBreeds,
   handleButtonSubmitClick,
+  handleResetGame,
 } from './actions';
 import reducer from './reducer';
 import saga from './saga';
@@ -61,6 +62,7 @@ export class Game extends React.PureComponent {
       buttonsBreeds,
       onRefreshClick,
       onButtonSubmitClick,
+      handleResetGameClick,
     } = this.props;
     return (
       <ContentWrapper>
@@ -93,6 +95,13 @@ export class Game extends React.PureComponent {
             </ButtonContainer>
 
             <StatsContainer>
+              <ButtonRefresh
+                new
+                type="button"
+                onClick={() => handleResetGameClick(breeds)}
+              >
+                New game
+              </ButtonRefresh>
               <H1>
                 {score} won / {match} tries
               </H1>
@@ -101,11 +110,7 @@ export class Game extends React.PureComponent {
                 type="button"
                 onClick={() => onRefreshClick(breeds)}
               >
-                Next
-                <i
-                  className="fa fa-angle-right"
-                  style={{ marginLeft: '15px' }}
-                />
+                <i className="fa fa-angle-right" />
               </ButtonRefresh>
             </StatsContainer>
           </>
@@ -128,6 +133,7 @@ Game.propTypes = {
   onLoadBreeds: PropTypes.func,
   onRefreshClick: PropTypes.func,
   onButtonSubmitClick: PropTypes.func,
+  handleResetGameClick: PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
@@ -137,6 +143,8 @@ export function mapDispatchToProps(dispatch) {
       dispatch(handleGetGameData(randomImgUrl, breedsListUrl, breeds)),
     onButtonSubmitClick: (currentBreed, el) =>
       dispatch(handleButtonSubmitClick(currentBreed, el)),
+    handleResetGameClick: breeds =>
+      dispatch(handleResetGame(randomImgUrl, breedsListUrl, breeds)),
   };
 }
 

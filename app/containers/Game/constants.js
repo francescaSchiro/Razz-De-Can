@@ -14,3 +14,7 @@ export const LOAD_BREEDS_ERROR = 'app/Game/LOAD_BREEDS_ERROR';
 export const HANDLE_BUTTON_SUBMIT_CLICK = 'app/Game/HANDLE_BUTTON_SUBMIT_CLICK';
 export const HANDLE_WIN = 'app/Game/HANDLE_WIN';
 export const HANDLE_LOSS = 'app/Game/HANDLE_WIN';
+
+export const HANDLE_RESET_GAME = 'app/Game/HANDLE_RESET_GAME';
+export const RESET_GAME_SUCCESS = 'app/Game/RESET_GAME_SUCCESS';
+export const RESET_GAME_ERROR = 'app/Game/RESET_GAME_ERROR';
