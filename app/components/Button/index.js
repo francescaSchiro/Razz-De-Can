@@ -4,7 +4,7 @@ import styled from 'styled-components';
 //   switch (props) {
 //     case props.primary:
 //       return 'black';
-//     case props.secondary:
+//     case props.next:
 //       return 'white';
 //     case props.success:
 //       return 'green';
@@ -16,6 +16,7 @@ import styled from 'styled-components';
 //       return 'black';
 //   }
 // }
+
 // function getTextColor(props) {
 //   switch (props) {
 //     case props.primary:
@@ -44,7 +45,7 @@ import styled from 'styled-components';
 // }
 
 const Button = styled.button`
-  margin-left: 30px;
+  margin-left: ${props => (props.stats ? '0px' : '30px')};
   padding: 10px 30px;
   background-color: ${props => (props.primary ? 'black' : 'white')};
   border: ${props => (props.primary ? '2px solid white' : '2px solid black')};

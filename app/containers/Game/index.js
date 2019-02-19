@@ -16,10 +16,12 @@ import ContentWrapper from 'components/ContentWrapper';
 import DogImg from 'components/DogImg';
 import H1 from 'components/H1';
 import H2 from 'components/H2';
+import Button from 'components/Button';
+import BreedButtonWrapper from 'components/BreedButtonWrapper';
 import { breedsListUrl, randomImgUrl } from 'utils/request';
 import ButtonContainer from './ButtonContainer';
 import ButtonSubmit from './ButtonSubmit';
-import ButtonRefresh from './ButtonRefresh';
+// import ButtonRefresh from './ButtonRefresh';
 import StatsContainer from './StatsContainer';
 import {
   makeSelectClickToStartaNewGame,
@@ -68,12 +70,19 @@ export class Game extends React.PureComponent {
       <ContentWrapper>
         {/* <Title>Guess the breed</Title> */}
         {clickToStartaNewGame === true || undefined ? (
-          <H2>Click below to start a new game</H2>
+          <BreedButtonWrapper>
+            <H2> Click to start a new game</H2>
+            <Button
+              primary
+              refresh
+              type="button"
+              onClick={() => onRefreshClick(breeds)}
+            >
+              <i className="fas fa-sync-alt" />
+            </Button>
+          </BreedButtonWrapper>
         ) : null}
 
-        <ButtonRefresh type="button" onClick={() => onRefreshClick(breeds)}>
-          <i className="fas fa-sync-alt" />
-        </ButtonRefresh>
         <DogImg game imgUrl={currentImgUrl} />
 
         {clickToStartaNewGame || undefined ? null : (
@@ -95,23 +104,28 @@ export class Game extends React.PureComponent {
             </ButtonContainer>
 
             <StatsContainer>
-              <ButtonRefresh
-                new
+              <Button
+                stats
                 type="button"
                 onClick={() => handleResetGameClick(breeds)}
               >
+                {/* <i
+                  className="fas fa-sync-alt"
+                  style={{ marginRight: '15px' }}
+                /> */}
                 New game
-              </ButtonRefresh>
+              </Button>
               <H1>
                 {score} / {match}
               </H1>
-              <ButtonRefresh
-                next
+              <Button
+                primary
+                stats
                 type="button"
                 onClick={() => onRefreshClick(breeds)}
               >
                 <i className="fa fa-angle-right" />
-              </ButtonRefresh>
+              </Button>
             </StatsContainer>
           </>
         )}
