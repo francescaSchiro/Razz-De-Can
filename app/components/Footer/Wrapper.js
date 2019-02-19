@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   left: 0;
 
   height: 45px;
-  padding: 15px;
+  padding: 0 15px;
 
   display: flex;
   justify-content: space-between;

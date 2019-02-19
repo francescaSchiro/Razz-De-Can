@@ -65,14 +65,16 @@ export class Game extends React.PureComponent {
     return (
       <ContentWrapper>
         <Title>Guess the breed</Title>
-        {clickToStartaNewGame ? <H2>Click below to start a new game</H2> : null}
+        {clickToStartaNewGame === true || undefined ? (
+          <H2>Click below to start a new game</H2>
+        ) : null}
 
         <ButtonRefresh type="button" onClick={() => onRefreshClick(breeds)}>
           <i className="fas fa-sync-alt" />
         </ButtonRefresh>
         <DogImg game imgUrl={currentImgUrl} />
 
-        {clickToStartaNewGame ? null : (
+        {clickToStartaNewGame || undefined ? null : (
           <>
             <ButtonContainer>
               {buttonsBreeds.map(el => (

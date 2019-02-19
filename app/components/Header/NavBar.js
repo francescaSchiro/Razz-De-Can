@@ -20,7 +20,7 @@ const NavBar = styled.div`
     left: 0;
     /* azzero padding di Header Wrapper*/
     padding: -15px;
-    height: 100vh;
+    height: calc(100vh - 45px);
     width: 100vw;
     display: flex;
     transform: ${props =>
