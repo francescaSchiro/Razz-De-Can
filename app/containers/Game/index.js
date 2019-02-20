@@ -21,7 +21,6 @@ import BreedButtonWrapper from 'components/BreedButtonWrapper';
 import { breedsListUrl, randomImgUrl } from 'utils/request';
 import ButtonContainer from './ButtonContainer';
 import ButtonSubmit from './ButtonSubmit';
-// import ButtonRefresh from './ButtonRefresh';
 import StatsContainer from './StatsContainer';
 import {
   makeSelectClickToStartaNewGame,
@@ -187,8 +186,3 @@ export default compose(
   withSaga,
   withConnect,
 )(Game);
-
-// (currentBreed, el) =>
-//       currentBreed === el
-//         ? dispatch(handleWin(currentBreed, el))
-//         : dispatch(handleLoss(currentBreed, el)),
