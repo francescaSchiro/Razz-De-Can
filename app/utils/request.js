@@ -5,6 +5,8 @@ import _ from 'lodash';
 // Request sUrls
 export const breedsListUrl = 'https://dog.ceo/api/breeds/list/all';
 export const randomImgUrl = 'https://dog.ceo/api/breeds/image/random';
+export const breedImgsUrl = breedName =>
+  `https://dog.ceo/api/breed/${breedName}/images`;
 export const randomInBreedUrl = breedName =>
   `https://dog.ceo/api/breed/${breedName}/images/random`;
 

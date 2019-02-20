@@ -17,11 +17,14 @@ import {
   LOAD_BREEDS_ERROR,
   LOAD_BREEDS_IMG_URL_SUCCESS,
   LOAD_BREEDS_IMG_URL_ERROR,
+  LOAD_BREED_IMGS_SUCCESS,
+  LOAD_BREED_IMGS_ERROR,
 } from './constants';
 
 // The initial state of the App
 export const initialState = fromJS({
   breeds: [],
+  breedImgs: [],
   breedsImgUrl: 'https://images.dog.ceo/breeds/affenpinscher/n02110627_946.jpg',
   selectedBreed: 'affenpinscher',
 });
@@ -38,6 +41,9 @@ function breedsReducer(state = initialState, action) {
         .set('selectedBreed', action.selectedBreed);
     case LOAD_BREEDS_IMG_URL_ERROR:
       return state.set('error', action.error);
+    case LOAD_BREED_IMGS_SUCCESS:
+      return state.set('breedImgs', action.breedImgs);
+
     default:
       return state;
   }

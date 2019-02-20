@@ -5,12 +5,14 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 
 import request from 'utils/request';
-import { LOAD_BREEDS, LOAD_BREEDS_IMG_URL } from './constants';
+import { LOAD_BREEDS, LOAD_BREEDS_IMG_URL, LOAD_BREED_IMGS } from './constants';
 import {
   loadBreedsSuccess,
   loadBreedsError,
   loadBreedsImgUrlSuccess,
   loadBreedsImgUrlError,
+  loadBreedImgsSuccess,
+  loadBreedImgsError,
 } from './actions';
 // import { makeSelectBreedName } from './selectors';
 
@@ -40,7 +42,21 @@ export function* getSelectedDogData(action) {
       loadBreedsImgUrlSuccess(breedsImgUrl, breedsImgUrl.split('/')[4]),
     );
   } catch (err) {
-    yield put(loadBreedsImgUrlError(err));
+    console.log(err);
+  }
+}
+/**
+ * @name getBreedThumbs
+ * @param {string} action.requestUrl : url to perform request to get breed images URLs for thumbnails
+ */
+export function* getBreedThumbs(action) {
+  try {
+    // Call our request helper (see 'utils/request)
+    const breedImgsObj = yield call(request, action.requestUrl);
+    const breedImgs = breedImgsObj.data.message;
+    yield put(loadBreedImgsSuccess(breedImgs));
+  } catch (err) {
+    yield put(loadBreedImgsError(err));
   }
 }
 
@@ -48,10 +64,7 @@ export function* getSelectedDogData(action) {
  * Root saga manages watcher lifecycle
  */
 export default function* DogBreeds() {
-  // Watches for LOAD_IMG_URL actions and calls getDogData when one comes in.
-  // By using `takeLatest` only the result of the latest API call is applied.
-  // It returns task descriptor (just like fork) so we can continue execution
-  // It will be cancelled automatically on component unmount
   yield takeLatest(LOAD_BREEDS, getBreeds);
   yield takeLatest(LOAD_BREEDS_IMG_URL, getSelectedDogData);
+  yield takeLatest(LOAD_BREED_IMGS, getBreedThumbs);
 }

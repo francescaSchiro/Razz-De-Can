@@ -17,19 +17,23 @@ import DogImg from 'components/DogImg';
 import Button from 'components/Button';
 import Select from 'components/Select';
 import Option from 'components/Option';
+
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 import BreedButtonWrapper from 'components/BreedButtonWrapper';
 import ContentWrapper from 'components/ContentWrapper';
-import { breedsListUrl, randomInBreedUrl } from 'utils/request';
+import { breedsListUrl, randomInBreedUrl, breedImgsUrl } from 'utils/request';
+import ThumbsContainer from './ThumbsContainer';
+import Thumb from './Thumb';
 import {
   makeSelectBreeds,
   makeSelectBreedsImgUrl,
   makeSelectSelectedBreed,
+  makeSelectBreedImgs,
 } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import { loadBreeds, loadBreedsImgUrl } from './actions';
+import { loadBreeds, loadBreedsImgUrl, loadBreedImgs } from './actions';
 import messages from './messages';
 
 // Requests URLs
@@ -45,6 +49,7 @@ export class Breeds extends React.PureComponent {
   componentDidMount() {
     if (this.props.breedslength !== []) {
       this.props.handleLoadBreeds(breedsListUrl);
+      this.props.handleLoadBreedImgs(breedImgsUrl(this.props.selectedBreed));
     }
   }
 
@@ -53,6 +58,7 @@ export class Breeds extends React.PureComponent {
       breeds,
       breedsImgUrl,
       selectedBreed,
+      breedImgs,
       onSelectChange,
       onRandomInBreedClick,
     } = this.props;
@@ -87,6 +93,11 @@ export class Breeds extends React.PureComponent {
 
         <DogImg imgUrl={breedsImgUrl} />
         <H1>* Thumbnails here *</H1>
+        <ThumbsContainer>
+          {breedImgs.map(el => (
+            <Thumb key={el} imgUrl={el} />
+          ))}
+        </ThumbsContainer>
       </ContentWrapper>
     );
   }
@@ -96,6 +107,7 @@ Breeds.propTypes = {
   breedsImgUrl: PropTypes.string,
   selectedBreed: PropTypes.string,
   breeds: PropTypes.array,
+  breedImgs: PropTypes.array,
   onSelectClick: PropTypes.func,
   onRandomInBreedClick: PropTypes.func,
   handleLoadBreeds: PropTypes.func,
@@ -110,6 +122,7 @@ export function mapDispatchToProps(dispatch) {
     },
     onRandomInBreedClick: url => dispatch(loadBreedsImgUrl(url)),
     handleLoadBreeds: url => dispatch(loadBreeds(url)),
+    handleLoadBreedImgs: url => dispatch(loadBreedImgs(url)),
   };
 }
 
@@ -117,6 +130,7 @@ const mapStateToProps = createStructuredSelector({
   breedsImgUrl: makeSelectBreedsImgUrl(),
   selectedBreed: makeSelectSelectedBreed(),
   breeds: makeSelectBreeds(),
+  breedImgs: makeSelectBreedImgs(),
 });
 
 const withConnect = connect(

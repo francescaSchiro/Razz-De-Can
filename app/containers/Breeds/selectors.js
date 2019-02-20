@@ -16,4 +16,12 @@ const makeSelectBreedsImgUrl = () =>
 const makeSelectSelectedBreed = () =>
   createSelector(selectBreeds, breedsState => breedsState.get('selectedBreed'));
 
-export { makeSelectBreeds, makeSelectBreedsImgUrl, makeSelectSelectedBreed };
+const makeSelectBreedImgs = () =>
+  createSelector(selectBreeds, breedsState => breedsState.get('breedImgs'));
+
+export {
+  makeSelectBreeds,
+  makeSelectBreedsImgUrl,
+  makeSelectSelectedBreed,
+  makeSelectBreedImgs,
+};

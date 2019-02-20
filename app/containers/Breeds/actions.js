@@ -9,6 +9,9 @@ import {
   LOAD_BREEDS_IMG_URL,
   LOAD_BREEDS_IMG_URL_SUCCESS,
   LOAD_BREEDS_IMG_URL_ERROR,
+  LOAD_BREED_IMGS,
+  LOAD_BREED_IMGS_SUCCESS,
+  // LOAD_BREED_IMGS_ERROR,
 } from './constants';
 /**
  * Handles the loading of all the breeds(intercepted by saga because it has to make an async request before proceeding in updating state)
@@ -74,3 +77,25 @@ export function loadBreedsImgUrlError(error) {
     error,
   };
 }
+
+// Handle Load Breeds Imgs
+
+export function loadBreedImgs(requestUrl) {
+  return {
+    type: LOAD_BREED_IMGS,
+    requestUrl,
+  };
+}
+export function loadBreedImgsSuccess(breedImgs) {
+  return {
+    type: LOAD_BREED_IMGS_SUCCESS,
+    breedImgs,
+  };
+}
+
+// export function loadBreedImgsError(err) {
+//   return {
+//     type: LOAD_BREED_IMGS_ERROR,
+//     err,
+//   };
+// }
