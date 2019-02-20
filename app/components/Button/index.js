@@ -6,8 +6,8 @@ const Button = styled.button`
   background-color: ${props =>
     props.primary ? 'var(--black)' : 'var(--white)'};
   border: ${props =>
-    props.primary ? '2px solid var(--white)' : '2px solid var(--black)'};
-  color: ${props => (props.primary ? 'var(--white)' : 'var(--black)')};
+    props.primary ? '2px solid var(--white)' : '2px solid var(--red)'};
+  color: ${props => (props.primary ? 'var(--white)' : 'var(--red)')};
   font-size: 1rem;
 
   border-radius: 5px;
@@ -20,7 +20,7 @@ const Button = styled.button`
   ${props =>
     props.primary
       ? '&:hover {background-color: var(--red);color: var(--white)};'
-      : '&:hover {background-color: var(--red);color: var(--white); border: 2px solid var(--darkRed);}'};
+      : '&:hover {background-color: var(--red);color: var(--white); ;}'};
 
   &:active {
     background-color: var(--darkRed);
@@ -31,13 +31,17 @@ const Button = styled.button`
   }
 
   @media (max-width: 700px) {
-    &:hover {
+    ${props =>
+      props.primary
+        ? '&:hover {background-color: var(--black);color: var(--white)};'
+        : '&:hover {background-color: var(--white);color: var(--red);}'};
+    /* &:hover {
       background-color: var(--black);
       color: var(--white);
-    }
-    &:active {
-      background-color: var(--red);
-    }
+    } */
+    /* &:active {
+      background-color: var(--white);
+    } */
 
     font-size: 0.7em;
     padding: 5px 20px;

@@ -5,7 +5,7 @@ function getWinningProps(props) {
   if (props.disabled && props.id === props.currentBreed) {
     return `
     background-color: var(--blue)!important;
-    cursor: not-allowed;
+    cursor: default;
   &::after {
     content: '🙂';
     position: absolute;
@@ -27,7 +27,7 @@ function getWinningProps(props) {
   ) {
     return `
     background-color: var(--red)!important;
-    cursor: not-allowed;
+    cursor: default;
     &::after {
       content:  '☹️';
       position: absolute;
@@ -43,7 +43,7 @@ function getWinningProps(props) {
     };`;
   }
   if (props.disabled) {
-    return 'color: grey!important; cursor: not-allowed;';
+    return 'color: grey!important; cursor: default;';
   }
   return 'background-color: var(--black)';
 }
