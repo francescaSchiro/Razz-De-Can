@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
 }
   html,
   body {
-    :-webkit-scrollbar {
+    ::-webkit-scrollbar {
     display: none;
   }
 
