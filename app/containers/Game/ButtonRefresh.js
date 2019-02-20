@@ -10,11 +10,11 @@ const ButtonRefresh = styled.button`
   border-radius: 5px;
   /* margin-bottom: 15px; */
 
-  border-bottom: 1px solid #9bbff5;
+  /* border-bottom: 1px solid #9bbff5; */
   /* height: 60px; */
-  /* background-color: #b30000; */
-  background-color: #0076b3;
-  color: #fff;
+  /* background-color:var(--red); */
+  background-color: var(--blue);
+  color: var(--white);
   text-transform: uppercase;
   font-family: inherit;
   letter-spacing: 0.05rem;
@@ -22,14 +22,14 @@ const ButtonRefresh = styled.button`
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    background-color: #005e8f;
+    background-color: var(--blue);
     color: white;
   }
   &:hover > * {
     color: white;
   }
   &:active {
-    background-color: #005e8f;
+    background-color: var(--blue);
   }
   &:active > * {
     transition: transform 0.1s ease-in-out;
@@ -38,11 +38,11 @@ const ButtonRefresh = styled.button`
   }
   @media (max-width: 700px) {
     &:hover {
-      background-color: #005e8f;
+      background-color: var(--blue);
       color: white;
     }
     &:active {
-      background-color: #005e8f;
+      background-color: var(--blue);
     }
   }
 `;

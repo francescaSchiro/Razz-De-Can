@@ -29,7 +29,7 @@ export default Wrapper;
   padding: 15px;
   top: 0;
   left: 0;
-  background-color: red;
+  background-color: var(--red);
   flex-direction: column;
   color: white;
   height: 100%;

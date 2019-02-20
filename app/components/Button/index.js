@@ -1,5 +1,51 @@
 import styled from 'styled-components';
 
+const Button = styled.button`
+  margin-left: ${props => (props.stats ? '0px' : '30px')};
+  padding: 10px 30px;
+  background-color: ${props =>
+    props.primary ? 'var(--black)' : 'var(--white)'};
+  border: ${props =>
+    props.primary ? '2px solid var(--white)' : '2px solid var(--black)'};
+  color: ${props => (props.primary ? 'var(--white)' : 'var(--black)')};
+  font-size: 1rem;
+
+  border-radius: 5px;
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 0.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  ${props =>
+    props.primary
+      ? '&:hover {background-color: var(--red);color: var(--white)};'
+      : '&:hover {background-color: var(--red);color: var(--white); border: 2px solid var(--darkRed);}'};
+
+  &:active {
+    background-color: var(--darkRed);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  @media (max-width: 700px) {
+    &:hover {
+      background-color: var(--black);
+      color: var(--white);
+    }
+    &:active {
+      background-color: var(--red);
+    }
+
+    font-size: 0.7em;
+    padding: 5px 20px;
+  }
+`;
+
+export default Button;
+
 // function getButtonBg(props) {
 //   switch (props) {
 //     case props.primary:
@@ -43,45 +89,3 @@ import styled from 'styled-components';
 //       return 'red';
 //   }
 // }
-
-const Button = styled.button`
-  margin-left: ${props => (props.stats ? '0px' : '30px')};
-  padding: 10px 30px;
-  background-color: ${props => (props.primary ? 'black' : 'white')};
-  border: ${props => (props.primary ? '2px solid white' : '2px solid black')};
-  color: ${props => (props.primary ? 'white' : 'black')};
-  font-size: 1rem;
-
-  border-radius: 5px;
-  font-family: 'Nunito', sans-serif;
-  letter-spacing: 0.05rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    background-color: red;
-    color: white;
-  }
-  &:active {
-    background-color: #b30000;
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  @media (max-width: 700px) {
-    &:hover {
-      background-color: black;
-      color: white;
-    }
-    &:active {
-      background-color: #b30000;
-    }
-    font-size: 0.7em;
-    padding: 5px 20px;
-  }
-`;
-
-export default Button;

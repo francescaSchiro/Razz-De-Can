@@ -9,7 +9,7 @@ const Title = styled.div`
 
   font-family: 'Nunito', sans-serif;
   font-weight: 900;
-  color: red;
+  color: var(--red);
   font-size: 2rem;
 `;
 

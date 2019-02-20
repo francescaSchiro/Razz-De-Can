@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const DogImg = styled.div`
-  /* background-color: #b30000; */
+  /* background-color:var(--red); */
 
   background-image: url(${props => props.imgUrl});
   background-size: contain; /* <------ */

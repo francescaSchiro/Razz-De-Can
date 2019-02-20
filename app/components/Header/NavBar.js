@@ -27,7 +27,7 @@ const NavBar = styled.div`
       props.isHamburgerMenuVisible ? 'translateY(0)' : 'translateY(-1000px)'};
     opacity: ${props => (props.isHamburgerMenuVisible ? '1' : '0')};
     /* background-color: rgba(255, 255, 255, 0.8); */
-    background-color: #b30000;
+    background-color: var(--red);
     flex-direction: column;
     justify-content: space-around;
     align-items: center;

@@ -1,9 +1,17 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --red: #b30000;
+  --darkRed: #800000;
+  --blue: 	#00b3b3;
+  --darkBlue: #008080;
+}
   html,
   body {
-    ::-webkit-scrollbar {
+    :-webkit-scrollbar {
     display: none;
   }
 
@@ -23,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
   } */
 
   #app {
-    background-color: #ffffff;
+    background-color: var(--white);
     min-height: 100%;
     min-width: 100%;
   }
@@ -41,18 +49,15 @@ const GlobalStyle = createGlobalStyle`
 
   .navLinkActive {
     /* font-weight:900; */
-    color: red;
+    color: var(--red);
     /* border-radius: 10px; */
     @media (max-width: 700px) {
-      color: #b30000;
+      color:var(--red);
   }
   }
 
   i {
     height: fit-content;
-    &:hover{
-      color:red;
-    }
   }
 
   /* .win {

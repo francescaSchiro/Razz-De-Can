@@ -20,20 +20,25 @@ import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 import Button from 'components/Button';
 import H2 from 'components/H2';
-import DogImg from 'components/DogImg/Loadable';
+import DogImg from 'components/DogImg/';
+import Loader from 'components/Loader';
 import BreedButtonWrapper from 'components/BreedButtonWrapper';
 import ContentWrapper from 'components/ContentWrapper';
 import { randomImgUrl } from 'utils/request';
 import { loadImgUrl } from './actions';
 import reducer from './reducer';
 import saga from './saga';
-import { makeSelectImgUrl, makeSelectBreedName } from './selectors';
+import {
+  makeSelectImgUrl,
+  makeSelectBreedName,
+  makeSelectIsLoading,
+} from './selectors';
 import messages from './messages';
 
 /* eslint-disable react/prefer-stateless-function */
 export class HomePage extends React.PureComponent {
   render() {
-    const { imgUrl, breedName, onRandomClick } = this.props;
+    const { imgUrl, breedName, onRandomClick, isLoading } = this.props;
     return (
       <Fragment>
         <ContentWrapper>
@@ -49,7 +54,7 @@ export class HomePage extends React.PureComponent {
               {<FormattedMessage {...messages.buttonText} />}
             </Button>
           </BreedButtonWrapper>
-          <DogImg imgUrl={imgUrl} />
+          {isLoading ? <Loader /> : <DogImg imgUrl={imgUrl} />}
         </ContentWrapper>
       </Fragment>
     );
@@ -60,6 +65,7 @@ HomePage.propTypes = {
   imgUrl: PropTypes.string,
   breedName: PropTypes.string,
   onRandomClick: PropTypes.func,
+  isLoading: PropTypes.bool,
 };
 
 export function mapDispatchToProps(dispatch) {
@@ -71,6 +77,7 @@ export function mapDispatchToProps(dispatch) {
 const mapStateToProps = createStructuredSelector({
   imgUrl: makeSelectImgUrl(),
   breedName: makeSelectBreedName(),
+  isLoading: makeSelectIsLoading(),
 });
 
 const withConnect = connect(

@@ -15,6 +15,7 @@ import H2 from 'components/H2';
 import DogImg from 'components/DogImg';
 import Button from 'components/Button';
 import Select from 'components/Select';
+import Option from 'components/Option';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 import BreedButtonWrapper from 'components/BreedButtonWrapper';
@@ -63,9 +64,9 @@ export class Breeds extends React.PureComponent {
 
           <Select name="breeds" value={selectedBreed} onChange={onSelectChange}>
             {breeds.map(el => (
-              <option key={el} value={el}>
+              <Option key={el} value={el}>
                 {el}
-              </option>
+              </Option>
             ))}
           </Select>
         </BreedButtonWrapper>

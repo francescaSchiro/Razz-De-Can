@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   @media only screen and (max-width: 600px) {
     body {
       flex-direction: column;
-      background-color: red;
+      background-color: var(--red);
       color: white;
     }
   }

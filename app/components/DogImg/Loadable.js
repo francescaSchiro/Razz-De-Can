@@ -1,29 +1,15 @@
 /**
  * Asynchronously loads the component for DogImg
  */
-import React from 'react';
+// import React from 'react';
+// import styled from 'styled-components';
 // import loadable from 'loadable-components';
 import Loadable from 'react-loadable';
-// import Loading from './my-loading-component';
+import Loader from 'components/Loader';
 
-function Loading() {
-  return (
-    <div
-      style={{
-        zIndex: 100,
-        // backgroundColor: 'black',
-        color: 'black',
-        height: '500px',
-        width: '500px',
-      }}
-    >
-      <h1>Loading...</h1>
-    </div>
-  );
-}
 const LoadableComponent = Loadable({
   loader: () => import('./index'),
-  loading: Loading,
+  loading: Loader,
 });
 
 export default LoadableComponent;

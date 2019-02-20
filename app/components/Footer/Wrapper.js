@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   font-family: 'Nunito', sans-serif;
   font-weight: 600;
   background-color: white;
-  color: #b30000;
+  color: var(--red);
 `;
 
 export default Wrapper;

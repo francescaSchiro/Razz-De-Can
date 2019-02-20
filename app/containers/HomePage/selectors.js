@@ -13,4 +13,12 @@ const makeSelectBreedName = () =>
 const makeSelectImgUrl = () =>
   createSelector(selectHome, homeState => homeState.get('imgUrl'));
 
-export { selectHome, makeSelectBreedName, makeSelectImgUrl };
+const makeSelectIsLoading = () =>
+  createSelector(selectHome, homeState => homeState.get('isLoading'));
+
+export {
+  selectHome,
+  makeSelectBreedName,
+  makeSelectImgUrl,
+  makeSelectIsLoading,
+};

@@ -12,7 +12,7 @@ const H2 = styled.h2`
   &::before {
     content: '';
     width: 10000%;
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid var(--red);
     position: absolute;
     right: 110%;
     top: 50%;

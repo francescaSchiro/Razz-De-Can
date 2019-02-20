@@ -4,7 +4,7 @@ import styled from 'styled-components';
 function getWinningProps(props) {
   if (props.disabled && props.id === props.currentBreed) {
     return `
-    background-color: green!important;
+    background-color: var(--blue)!important;
     cursor: not-allowed;
   &::after {
     content: '🙂';
@@ -13,6 +13,11 @@ function getWinningProps(props) {
     bottom: 10%;
     font-size: 1.5rem;
     color: white;
+    // @media (max-width: 700px) {
+    //   font-size: 1rem;
+    //   bottom: 15%;
+    //   right:2%;
+    // }
   };`;
   }
   if (
@@ -21,7 +26,7 @@ function getWinningProps(props) {
     props.clicked !== props.currentBreed
   ) {
     return `
-    background-color: red!important;
+    background-color: var(--red)!important;
     cursor: not-allowed;
     &::after {
       content:  '☹️';
@@ -30,12 +35,17 @@ function getWinningProps(props) {
       bottom: 10%;
       font-size: 1.5rem;
       color: white;
+      // @media (max-width: 700px) {
+      //   font-size: 1rem;
+      //   bottom: 15%;
+      //   right:2%;
+      // }
     };`;
   }
   if (props.disabled) {
-    return 'background-color: grey!important; cursor: not-allowed;';
+    return 'color: grey!important; cursor: not-allowed;';
   }
-  return 'background-color: black';
+  return 'background-color: var(--black)';
 }
 
 const ButtonSubmit = styled.button`
@@ -46,9 +56,9 @@ const ButtonSubmit = styled.button`
   z-index: 1;
   font-size: 1rem;
   border-radius: 5px;
-  background-color: black;
+  background-color: var(--black);
 
-  color: #fff;
+  color: var(--white);
   text-transform: uppercase;
   font-family: inherit;
   font-weight: 600;
@@ -59,10 +69,16 @@ const ButtonSubmit = styled.button`
     props.disabled
       ? ''
       : `&:hover {
-    background-color: red;
+    background-color: var(--red);
   }`};
 
   ${props => getWinningProps(props)};
 `;
 
 export default ButtonSubmit;
+
+/* @media (max-width: 700px) {
+  min-width: 240px;
+  font-size: 0.7em;
+  /* padding: 5px 20px;
+} */

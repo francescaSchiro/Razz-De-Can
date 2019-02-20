@@ -12,7 +12,7 @@ const NavItem = styled(NavLink)`
   font-weight: 600;
   letter-spacing: 0.05rem;
   border: 2px solid transparent;
-  color: black;
+  color: var(--black);
 
   cursor: pointer;
   text-decoration: none;
@@ -21,10 +21,10 @@ const NavItem = styled(NavLink)`
   user-select: none;
 
   &:hover {
-    color: red;
+    color: var(--red);
   }
   &:active {
-    color: #b30000;
+    color: var(--red);
   }
 
   &:not(:last-of-type) {
@@ -36,18 +36,18 @@ const NavItem = styled(NavLink)`
   }
   @media (max-width: 700px) {
     &:not(:last-of-type) {
-      border-bottom: 1px solid white;
+      border-bottom: 1px solid var(--white);
     }
 
     &:not(#logo) {
       width: 100%;
       justify-content: center;
-      color: white;
+      color: var(--white);
       &:active {
-        color: black;
+        color: var(--black);
       }
       &:hover {
-        color: red;
+        color: var(--red);
       }
     }
   }
