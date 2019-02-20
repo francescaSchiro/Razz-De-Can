@@ -11,6 +11,7 @@ import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import { FormattedMessage } from 'react-intl';
 
+import H1 from 'components/H1';
 import H2 from 'components/H2';
 import DogImg from 'components/DogImg';
 import Button from 'components/Button';
@@ -85,6 +86,7 @@ export class Breeds extends React.PureComponent {
         </BreedButtonWrapper>
 
         <DogImg imgUrl={breedsImgUrl} />
+        <H1>* Thumbnails here *</H1>
       </ContentWrapper>
     );
   }
