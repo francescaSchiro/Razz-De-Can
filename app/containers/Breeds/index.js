@@ -90,7 +90,11 @@ export class Breeds extends React.PureComponent {
         <H1>* Thumbnails here *</H1>
         <ThumbsContainer>
           {breedImgs.map(el => (
-            <Thumb key={el} imgUrl={el} />
+            <Thumb
+              key={el}
+              current={breedsImgUrl.split('/')[5] === el.split('/')[5]}
+              imgUrl={el}
+            />
           ))}
         </ThumbsContainer>
       </ContentWrapper>

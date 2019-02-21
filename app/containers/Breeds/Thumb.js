@@ -1,15 +1,28 @@
 import styled from 'styled-components';
 
 const Thumb = styled.div`
+  position: relative;
   height: 100px;
   width: 100px;
   background-color: tomato;
-  border: 1px solid white;
+  border: ${props =>
+    props.current === true ? '5px solid green' : '1px solid white'};
   background-image: url(${props => props.imgUrl});
-
   background-size: cover;
 
-  /* @media (max-width: 700px) {
+  ${props =>
+    props.current
+      ? `
+ &:after {
+   content:'';
+   position:absolute;
+   background-color: var(--red);
+  //  opacity: 0.5;
+   top: 0;
+   right:50px;
+ }
+ `
+      : null} /* @media (max-width: 700px) {
     flex-grow: 1;
   } */
 
@@ -23,7 +36,7 @@ const Thumb = styled.div`
   color: white;
   font-weight: bold;
   font-size: 3em;
-  text-align: center; */
+  text-align: center; */;
 `;
 
 export default Thumb;
