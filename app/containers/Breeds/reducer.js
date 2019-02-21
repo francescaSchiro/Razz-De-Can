@@ -25,8 +25,9 @@ import {
 export const initialState = fromJS({
   breeds: [],
   breedImgs: [],
-  breedsImgUrl: '',
-  selectedBreed: 'affenpinscher',
+  breedsImgUrl:
+    'https://media.rainpos.com/5294/faithful_friend_dog_collage.jpg',
+  selectedBreed: '',
 });
 
 function breedsReducer(state = initialState, action) {
@@ -43,9 +44,9 @@ function breedsReducer(state = initialState, action) {
       return state.set('error', action.error);
     case LOAD_BREED_IMGS_SUCCESS:
       return state
-        .set('breedImgs', action.breedImgs)
+        .set('selectedBreed', action.selectedBreed)
         .set('breedsImgUrl', action.breedImgs[0])
-        .set('selectedBreed', action.selectedBreed);
+        .set('breedImgs', action.breedImgs);
     case LOAD_SELECTED_IMG_SUCCESS:
       return state.set('breedsImgUrl', action.breedsImgUrl);
 

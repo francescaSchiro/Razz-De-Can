@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
     width: 100vw;
     margin:0; padding:0;
     font-size: 16px;
+    scroll-behavior: smooth;
   }
 
   body {

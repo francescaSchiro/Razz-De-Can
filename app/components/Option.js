@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const Option = styled.option`
   background-color: var(--red);
+  color: ${props => (props.disabled ? 'var(--darkRed)' : 'var(--white)')};
 
   &:checked {
     cursor: pointer;

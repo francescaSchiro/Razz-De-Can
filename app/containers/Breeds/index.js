@@ -11,7 +11,7 @@ import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import { FormattedMessage } from 'react-intl';
 
-import H1 from 'components/H1';
+import FullTitle from 'components/FullTitle';
 import H2 from 'components/H2';
 import DogImg from 'components/DogImg';
 // import Button from 'components/Button';
@@ -35,7 +35,7 @@ import reducer from './reducer';
 import saga from './saga';
 import {
   loadBreeds,
-  loadBreedsImgUrl,
+  // loadBreedsImgUrl,
   loadBreedImgs,
   loadSelectedImg,
 } from './actions';
@@ -70,6 +70,9 @@ export class Breeds extends React.PureComponent {
           </H2>
 
           <Select name="breeds" value={selectedBreed} onChange={onSelectChange}>
+            <Option disabled selected hidden value="">
+              Click to search...
+            </Option>
             {breeds.map(el => (
               <Option key={el} value={el}>
                 {el}
@@ -79,7 +82,13 @@ export class Breeds extends React.PureComponent {
         </BreedButtonWrapper>
 
         <DogImg imgUrl={breedsImgUrl} />
-        <H1>* Thumbnails here *</H1>
+        {selectedBreed && (
+          <FullTitle>
+            More pics of{' '}
+            <span style={{ fontStyle: 'italic' }}>{selectedBreed}</span>
+          </FullTitle>
+        )}
+
         <ThumbsContainer>
           {breedImgs.map((el, i) => (
             <Thumb
@@ -102,7 +111,7 @@ Breeds.propTypes = {
   breeds: PropTypes.array,
   breedImgs: PropTypes.array,
   onSelectClick: PropTypes.func,
-  onRandomInBreedClick: PropTypes.func,
+  // onRandomInBreedClick: PropTypes.func,
   handleLoadBreeds: PropTypes.func,
 };
 
@@ -114,7 +123,7 @@ export function mapDispatchToProps(dispatch) {
       const url = breedImgsUrl(breed);
       dispatch(loadBreedImgs(url));
     },
-    onRandomInBreedClick: url => dispatch(loadBreedsImgUrl(url)),
+    // onRandomInBreedClick: url => dispatch(loadBreedsImgUrl(url)),
     handleLoadBreeds: url => dispatch(loadBreeds(url)),
     handleLoadBreedImgs: url => dispatch(loadBreedImgs(url)),
     onThumbClick: breedsImgUrl => dispatch(loadSelectedImg(breedsImgUrl)),
