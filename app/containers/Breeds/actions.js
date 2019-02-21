@@ -12,6 +12,7 @@ import {
   LOAD_BREED_IMGS,
   LOAD_BREED_IMGS_SUCCESS,
   LOAD_SELECTED_IMG,
+  LOAD_SELECTED_IMG_SUCCESS,
   // LOAD_BREED_IMGS_ERROR,
 } from './constants';
 /**
@@ -98,6 +99,12 @@ export function loadBreedImgsSuccess(breedImgs, selectedBreed) {
 export function loadSelectedImg(breedsImgUrl) {
   return {
     type: LOAD_SELECTED_IMG,
+    breedsImgUrl,
+  };
+}
+export function loadSelectedImgSuccess(breedsImgUrl) {
+  return {
+    type: LOAD_SELECTED_IMG_SUCCESS,
     breedsImgUrl,
   };
 }

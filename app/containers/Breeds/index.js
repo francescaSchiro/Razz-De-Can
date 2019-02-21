@@ -14,7 +14,7 @@ import { FormattedMessage } from 'react-intl';
 import H1 from 'components/H1';
 import H2 from 'components/H2';
 import DogImg from 'components/DogImg';
-import Button from 'components/Button';
+// import Button from 'components/Button';
 import Select from 'components/Select';
 import Option from 'components/Option';
 
@@ -22,7 +22,7 @@ import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 import BreedButtonWrapper from 'components/BreedButtonWrapper';
 import ContentWrapper from 'components/ContentWrapper';
-import { breedsListUrl, randomInBreedUrl, breedImgsUrl } from 'utils/request';
+import { breedsListUrl, breedImgsUrl } from 'utils/request';
 import ThumbsContainer from './ThumbsContainer';
 import Thumb from './Thumb';
 import {
@@ -49,7 +49,7 @@ export class Breeds extends React.PureComponent {
   componentDidMount() {
     if (this.props.breedslength !== []) {
       this.props.handleLoadBreeds(breedsListUrl);
-      this.props.handleLoadBreedImgs(breedImgsUrl(this.props.selectedBreed));
+      // this.props.handleLoadBreedImgs(breedImgsUrl(this.props.selectedBreed));
     }
   }
 
@@ -60,7 +60,6 @@ export class Breeds extends React.PureComponent {
       selectedBreed,
       breedImgs,
       onSelectChange,
-      onRandomInBreedClick,
       onThumbClick,
     } = this.props;
     return (
@@ -77,19 +76,6 @@ export class Breeds extends React.PureComponent {
               </Option>
             ))}
           </Select>
-        </BreedButtonWrapper>
-
-        <BreedButtonWrapper>
-          <H2>{selectedBreed}</H2>
-          <Button
-            primary
-            type="button"
-            onClick={() =>
-              onRandomInBreedClick(randomInBreedUrl(selectedBreed))
-            }
-          >
-            <FormattedMessage {...messages.randomInBreedButtonText} />
-          </Button>
         </BreedButtonWrapper>
 
         <DogImg imgUrl={breedsImgUrl} />
@@ -153,6 +139,18 @@ const withSaga = injectSaga({ key: 'breeds', saga }); // need for breeds request
 export default compose(
   withReducer,
   withSaga,
-
   withConnect,
 )(Breeds);
+
+/* <BreedButtonWrapper>
+    <H2>{selectedBreed}</H2>
+    <Button
+      primary
+      type="button"
+      onClick={() =>
+        onRandomInBreedClick(randomInBreedUrl(selectedBreed))
+      }
+    >
+      <FormattedMessage {...messages.randomInBreedButtonText} />
+    </Button>
+  </BreedButtonWrapper> */

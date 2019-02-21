@@ -5,7 +5,14 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 
 import request from 'utils/request';
-import { LOAD_BREEDS, LOAD_BREEDS_IMG_URL, LOAD_BREED_IMGS } from './constants';
+import { topFunction } from 'utils/helpers';
+
+import {
+  LOAD_BREEDS,
+  LOAD_BREEDS_IMG_URL,
+  LOAD_BREED_IMGS,
+  LOAD_SELECTED_IMG,
+} from './constants';
 import {
   loadBreedsSuccess,
   loadBreedsError,
@@ -13,6 +20,7 @@ import {
   // loadBreedsImgUrlError,
   loadBreedImgsSuccess,
   // loadBreedImgsError,
+  loadSelectedImgSuccess,
 } from './actions';
 // import { makeSelectBreedName } from './selectors';
 
@@ -60,6 +68,14 @@ export function* getBreedThumbs(action) {
     console.log(err);
   }
 }
+export function* handleUpdateDogImg(action) {
+  try {
+    yield put(loadSelectedImgSuccess(action.breedsImgUrl));
+    yield put(topFunction());
+  } catch (err) {
+    console.log(err);
+  }
+}
 
 /**
  * Root saga manages watcher lifecycle
@@ -68,4 +84,5 @@ export default function* DogBreeds() {
   yield takeLatest(LOAD_BREEDS, getBreeds);
   yield takeLatest(LOAD_BREEDS_IMG_URL, getSelectedDogData);
   yield takeLatest(LOAD_BREED_IMGS, getBreedThumbs);
+  yield takeLatest(LOAD_SELECTED_IMG, handleUpdateDogImg);
 }
