@@ -1,42 +1,52 @@
 import styled from 'styled-components';
 
+function getCurrentProps(props) {
+  if (props.current) {
+    return `&::after { content:'';
+   position:absolute;
+   width: 100%;
+   height: 100%;
+   background-color: var(--red);
+   opacity: 0.5;
+   top: 0;
+   left:0;
+ }
+ `;
+  }
+  return ``;
+}
+
 const Thumb = styled.div`
   position: relative;
   height: 100px;
   width: 100px;
   background-color: tomato;
-  border: ${props =>
-    props.current === true ? '5px solid green' : '1px solid white'};
+  border: 1px solid white;
   background-image: url(${props => props.imgUrl});
   background-size: cover;
+  cursor: ${props => (props.current ? 'default' : 'pointer')};
+  &:hover {
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: var(--red);
+      opacity: 0.5;
+      top: 0;
+      left: 0;
+    }
+  }
 
-  ${props =>
-    props.current
-      ? `
- &:after {
-   content:'';
-   position:absolute;
-   background-color: var(--red);
-  //  opacity: 0.5;
-   top: 0;
-   right:50px;
- }
- `
-      : null} /* @media (max-width: 700px) {
-    flex-grow: 1;
-  } */
+  @media (max-width: 700px) {
+    &:hover {
+      &::after {
+        content: '';
+      }
+    }
+  }
 
-  /* background: tomato;
-  padding: 5px;
-  width: 200px;
-  height: 150px;
-  margin-top: 10px;
-  
-  line-height: 150px;
-  color: white;
-  font-weight: bold;
-  font-size: 3em;
-  text-align: center; */;
+  ${props => getCurrentProps(props)};
 `;
 
 export default Thumb;

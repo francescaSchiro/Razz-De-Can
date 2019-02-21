@@ -18,6 +18,7 @@ import {
   LOAD_BREEDS_IMG_URL_SUCCESS,
   LOAD_BREEDS_IMG_URL_ERROR,
   LOAD_BREED_IMGS_SUCCESS,
+  LOAD_SELECTED_IMG,
 } from './constants';
 
 // The initial state of the App
@@ -45,6 +46,8 @@ function breedsReducer(state = initialState, action) {
         .set('breedImgs', action.breedImgs)
         .set('breedsImgUrl', action.breedImgs[0])
         .set('selectedBreed', action.selectedBreed);
+    case LOAD_SELECTED_IMG:
+      return state.set('breedsImgUrl', action.breedsImgUrl);
 
     default:
       return state;

@@ -11,6 +11,7 @@ import {
   LOAD_BREEDS_IMG_URL_ERROR,
   LOAD_BREED_IMGS,
   LOAD_BREED_IMGS_SUCCESS,
+  LOAD_SELECTED_IMG,
   // LOAD_BREED_IMGS_ERROR,
 } from './constants';
 /**
@@ -94,9 +95,9 @@ export function loadBreedImgsSuccess(breedImgs, selectedBreed) {
   };
 }
 
-// export function loadBreedImgsError(err) {
-//   return {
-//     type: LOAD_BREED_IMGS_ERROR,
-//     err,
-//   };
-// }
+export function loadSelectedImg(breedsImgUrl) {
+  return {
+    type: LOAD_SELECTED_IMG,
+    breedsImgUrl,
+  };
+}

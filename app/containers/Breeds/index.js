@@ -33,7 +33,12 @@ import {
 } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import { loadBreeds, loadBreedsImgUrl, loadBreedImgs } from './actions';
+import {
+  loadBreeds,
+  loadBreedsImgUrl,
+  loadBreedImgs,
+  loadSelectedImg,
+} from './actions';
 import messages from './messages';
 
 // eslint-disable-next-line react/prefer-stateless-function
@@ -56,6 +61,7 @@ export class Breeds extends React.PureComponent {
       breedImgs,
       onSelectChange,
       onRandomInBreedClick,
+      onThumbClick,
     } = this.props;
     return (
       <ContentWrapper>
@@ -94,6 +100,7 @@ export class Breeds extends React.PureComponent {
               key={el}
               current={breedsImgUrl.split('/')[5] === el.split('/')[5]}
               imgUrl={el}
+              onClick={() => onThumbClick(el)}
             />
           ))}
         </ThumbsContainer>
@@ -123,6 +130,7 @@ export function mapDispatchToProps(dispatch) {
     onRandomInBreedClick: url => dispatch(loadBreedsImgUrl(url)),
     handleLoadBreeds: url => dispatch(loadBreeds(url)),
     handleLoadBreedImgs: url => dispatch(loadBreedImgs(url)),
+    onThumbClick: breedsImgUrl => dispatch(loadSelectedImg(breedsImgUrl)),
   };
 }
 
