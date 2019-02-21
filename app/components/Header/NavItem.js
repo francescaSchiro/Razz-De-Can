@@ -47,7 +47,7 @@ const NavItem = styled(NavLink)`
         color: var(--black);
       }
       &:hover {
-        color: var(--red);
+        color: var(--black);
       }
     }
   }

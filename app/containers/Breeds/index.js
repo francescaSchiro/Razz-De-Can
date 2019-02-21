@@ -36,11 +36,6 @@ import saga from './saga';
 import { loadBreeds, loadBreedsImgUrl, loadBreedImgs } from './actions';
 import messages from './messages';
 
-// Requests URLs
-// const breedsListUrl = 'https://dog.ceo/api/breeds/list/all';
-// const randomInBreedUrl = breedName =>
-//   `https://dog.ceo/api/breed/${breedName}/images/random`;
-
 // eslint-disable-next-line react/prefer-stateless-function
 export class Breeds extends React.PureComponent {
   /**
@@ -118,7 +113,8 @@ export function mapDispatchToProps(dispatch) {
     onSelectChange: e => {
       e.stopPropagation();
       const breed = e.target.value;
-      dispatch(loadBreedsImgUrl(randomInBreedUrl(breed)));
+      const url = breedImgsUrl(breed);
+      dispatch(loadBreedImgs(url));
     },
     onRandomInBreedClick: url => dispatch(loadBreedsImgUrl(url)),
     handleLoadBreeds: url => dispatch(loadBreeds(url)),

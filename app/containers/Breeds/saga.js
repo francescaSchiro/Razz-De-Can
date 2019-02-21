@@ -10,9 +10,9 @@ import {
   loadBreedsSuccess,
   loadBreedsError,
   loadBreedsImgUrlSuccess,
-  loadBreedsImgUrlError,
+  // loadBreedsImgUrlError,
   loadBreedImgsSuccess,
-  loadBreedImgsError,
+  // loadBreedImgsError,
 } from './actions';
 // import { makeSelectBreedName } from './selectors';
 
@@ -54,9 +54,10 @@ export function* getBreedThumbs(action) {
     // Call our request helper (see 'utils/request)
     const breedImgsObj = yield call(request, action.requestUrl);
     const breedImgs = breedImgsObj.data.message;
-    yield put(loadBreedImgsSuccess(breedImgs));
+    const selectedBreed = breedImgs[0].split('/')[4];
+    yield put(loadBreedImgsSuccess(breedImgs, selectedBreed));
   } catch (err) {
-    yield put(loadBreedImgsError(err));
+    console.log(err);
   }
 }
 

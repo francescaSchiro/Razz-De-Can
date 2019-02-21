@@ -86,10 +86,11 @@ export function loadBreedImgs(requestUrl) {
     requestUrl,
   };
 }
-export function loadBreedImgsSuccess(breedImgs) {
+export function loadBreedImgsSuccess(breedImgs, selectedBreed) {
   return {
     type: LOAD_BREED_IMGS_SUCCESS,
     breedImgs,
+    selectedBreed,
   };
 }
 
