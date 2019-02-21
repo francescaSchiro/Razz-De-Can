@@ -20,7 +20,7 @@ const Thumb = styled.div`
   position: relative;
   height: 200px;
   width: 200px;
-  background-color: tomato;
+  background-color: var(--red);
   border: 1px solid white;
   background-image: url(${props => props.imgUrl});
   background-size: cover;

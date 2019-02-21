@@ -68,7 +68,6 @@ export class Breeds extends React.PureComponent {
           <H2>
             <FormattedMessage {...messages.selectBreed} />
           </H2>
-
           <Select name="breeds" value={selectedBreed} onChange={onSelectChange}>
             <Option disabled selected hidden value="">
               Click to search...
