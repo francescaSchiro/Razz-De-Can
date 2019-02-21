@@ -21,6 +21,14 @@ Uses the [Dog API](https://dog.ceo/dog-api)
 
 ---
 
+## Use of [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html)
+> (not from the very beginning)
+- Whenever I add a new feature I move onto a new branch: `git branch -b feature/<feature_name>`;
+- After 1st commit: `git push -u origin <branch>` in order to add it also remotely;
+- When I'm satisfied with the feature and after last commit:`git push` & move to develop `git checkout develop` & merge onto develop `git merge feature/<feature_name>`
+- Then create and move onto anothe branch to implement new features `git checkout -b feature/<new_feature_name>`
+
+---
 - [x] FormattedMessages;
 - [x] FontFaceObserver;
 - [ ] Style responsive with Grommet / MaterialUI / ReactStrap / SemanticUi
