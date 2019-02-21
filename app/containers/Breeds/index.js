@@ -95,9 +95,10 @@ export class Breeds extends React.PureComponent {
         <DogImg imgUrl={breedsImgUrl} />
         <H1>* Thumbnails here *</H1>
         <ThumbsContainer>
-          {breedImgs.map(el => (
+          {breedImgs.map((el, i) => (
             <Thumb
               key={el}
+              id={i}
               current={breedsImgUrl.split('/')[5] === el.split('/')[5]}
               imgUrl={el}
               onClick={() => onThumbClick(el)}

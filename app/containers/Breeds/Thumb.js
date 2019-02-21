@@ -18,8 +18,8 @@ function getCurrentProps(props) {
 
 const Thumb = styled.div`
   position: relative;
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
   background-color: tomato;
   border: 1px solid white;
   background-image: url(${props => props.imgUrl});
@@ -39,6 +39,9 @@ const Thumb = styled.div`
   }
 
   @media (max-width: 700px) {
+    flex-grow: 1;
+    height: 100px;
+    width: 100px;
     &:hover {
       &::after {
         content: '';
