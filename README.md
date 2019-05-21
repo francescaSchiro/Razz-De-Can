@@ -1,5 +1,12 @@
+A little game about Dogs and Breeds that uses the [Dog API](https://dog.ceo/dog-api). 
+Developed starting from the **clean** code of [**react-boilerplate**](https://www.reactboilerplate.com/).
 
-This project was started from the **clean** code of [**react-boilerplate**](https://www.reactboilerplate.com/)
+---
+To start: 
+- clone the repo. `git clone https://github.com/francescaSchiro/Razz-De-Can.git`
+- install dependencies `npm i`
+- Start with: `npm start`
+---
 
 > Please note that this boilerplate is production-ready and not meant for beginners! If you're just starting out with react or redux, please refer to https://github.com/petehunt/react-howto instead. If you want a solid, battle-tested base to build your next product upon and have some experience with react, this is the perfect start for you.
 
@@ -13,13 +20,6 @@ This project was started from the **clean** code of [**react-boilerplate**](http
 5. Run `npm run clean` to delete the example app.
 
 ---
-- Start with: `npm start`
-- Deploy on tunnel domain: `npm run start:tunnel`
----
-
-Uses the [Dog API](https://dog.ceo/dog-api)
-
----
 
 ## Use of [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html)
 > (not from the very beginning)
@@ -29,8 +29,11 @@ Uses the [Dog API](https://dog.ceo/dog-api)
 - Then create and move onto anothe branch to implement new features `git checkout -b feature/<new_feature_name>`
 
 ---
-- [x] FormattedMessages;
-- [x] FontFaceObserver;
-- [ ] Style responsive with Grommet / MaterialUI / ReactStrap / SemanticUi
-- [ ] deploy on heroku https://devcenter.heroku.com/articles/getting-started-with-nodejs
+Some library I used: 
+- FormattedMessages;
+- FontFaceObserver;
+- styled-components
+- Redux
+- Saga
+- Loadable
 
